@@ -1,0 +1,1794 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RARA Digital — Build Digital Authority</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --gold: #b8965a;
+        --gold-light: #d4af7a;
+        --gold-pale: #f5edd8;
+        --gold-dim: rgba(184, 150, 90, 0.12);
+        --purple-deep: #390a47;
+        --purple-mid: #4a2c7a;
+        --purple-light: #7b5ea7;
+        --ink: #0f0a18;
+        --ink-soft: #2d2038;
+        --mist: #f7f4ef;
+        --mist-mid: #ede8df;
+        --stone: #7a6f85;
+        --stone-light: #b0a8b8;
+        --white: #ffffff;
+        --border: rgba(184, 150, 90, 0.15);
+        --border-mid: rgba(184, 150, 90, 0.28);
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Outfit", system-ui, sans-serif;
+        --nav-h: 72px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--sans);
+        background: var(--mist);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      /* ─── NAV ─── */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        background: rgba(247, 244, 239, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 0.5px solid var(--border);
+        padding: 0 5vw;
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .logo img {
+        height: 64px;
+        width: auto;
+        display: block;
+      }
+      .logo-placeholder {
+        height: 64px;
+        width: 120px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--stone-light);
+        cursor: pointer;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      .nav-link {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--stone);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--ink);
+      }
+      .nav-cta {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--purple-deep);
+        border: none;
+        border-radius: 20px;
+        padding: 9px 22px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--purple-mid);
+      }
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--ink);
+        transition: all 0.3s;
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: calc(var(--nav-h) + 4rem) 5vw 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 50% at 70% 40%,
+          rgba(74, 44, 122, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      .hero-left {
+      }
+      .hero-eyebrow {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .hero-eyebrow::before {
+        content: "";
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .hero-h {
+        font-family: var(--serif);
+        font-size: 52px;
+        font-weight: 500;
+        line-height: 1.1;
+        color: var(--ink);
+        margin-bottom: 1.75rem;
+      }
+      .hero-h em {
+        font-style: italic;
+        color: var(--purple-mid);
+      }
+      .hero-sub {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.8;
+        color: var(--stone);
+        max-width: 440px;
+        margin-bottom: 2.5rem;
+      }
+      .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        background: var(--purple-deep);
+        border: none;
+        border-radius: 20px;
+        padding: 14px 32px;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .hero-btn:hover {
+        background: var(--purple-mid);
+        transform: translateY(-1px);
+      }
+      .hero-btn svg {
+        transition: transform 0.2s;
+      }
+      .hero-btn:hover svg {
+        transform: translateX(3px);
+      }
+
+      .hero-right {
+        position: relative;
+      }
+      .video-frame {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 9/16;
+        max-height: 560px;
+        background: var(--ink);
+        box-shadow:
+          0 40px 80px rgba(45, 22, 84, 0.2),
+          0 0 0 0.5px var(--border-mid);
+      }
+      .video-frame video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .video-play-btn {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(15, 10, 24, 0.3);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .video-play-btn:hover {
+        background: rgba(15, 10, 24, 0.1);
+      }
+      .video-play-btn.hidden {
+        display: none;
+      }
+      .play-circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+      }
+      .video-play-btn:hover .play-circle {
+        transform: scale(1.08);
+      }
+      .play-circle svg {
+        margin-left: 3px;
+      }
+
+      .video-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--purple-deep),
+          var(--purple-mid)
+        );
+      }
+      .video-placeholder-label {
+        font-family: var(--serif);
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+        font-style: italic;
+      }
+      .video-placeholder-sub {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      .hero-float-tag {
+        position: absolute;
+        bottom: -20px;
+        left: -20px;
+        background: var(--white);
+        border: 0.5px solid var(--border-mid);
+        border-radius: 10px;
+        padding: 14px 20px;
+        box-shadow: 0 8px 24px rgba(45, 22, 84, 0.12);
+      }
+      .float-num {
+        font-family: var(--serif);
+        font-size: 26px;
+        font-weight: 600;
+        color: var(--purple-deep);
+        line-height: 1;
+      }
+      .float-label {
+        font-size: 11px;
+        color: var(--stone);
+        margin-top: 2px;
+      }
+
+      /* ─── PROOF BAR ─── */
+      .proof-bar {
+        background: linear-gradient(
+          135deg,
+          var(--purple-deep) 70%,
+          var(--gold) 100%
+        );
+        padding: 2.5rem 5vw;
+      }
+      .proof-bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+      }
+      .proof-item {
+        text-align: center;
+        padding: 0 1.5rem;
+        border-right: 0.5px solid rgba(255, 255, 255, 0.1);
+      }
+      .proof-item:last-child {
+        border-right: none;
+      }
+      .proof-num {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 600;
+        color: var(--gold-light);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .proof-label {
+        font-size: 12px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.5;
+      }
+
+      /* ─── SHARED SECTION STYLES ─── */
+      .section {
+        padding: 7rem 5vw;
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .section-divider {
+        border: none;
+        border-top: 0.5px solid var(--border);
+      }
+
+      /* ─── BELIEF ─── */
+      .belief {
+        background: var(--white);
+      }
+      .belief-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+      }
+      .belief-left {
+      }
+      .belief-quote {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 500;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 1.5rem;
+      }
+      .belief-body {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.9;
+      }
+      .belief-right {
+      }
+      .services-heading {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 1.5rem;
+      }
+      .services-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .service-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 1.25rem;
+        background: var(--mist);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-decoration: none;
+        border: 0.5px solid transparent;
+      }
+      .service-item:hover {
+        background: var(--gold-pale);
+        border-color: var(--border-mid);
+      }
+      .svc-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .svc-arrow {
+        color: var(--gold);
+        font-size: 16px;
+        transition: transform 0.2s;
+      }
+      .service-item:hover .svc-arrow {
+        transform: translateX(4px);
+      }
+
+      /* ─── RESULTS ─── */
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 2.5rem;
+      }
+      .result-card {
+        padding: 2rem;
+        background: var(--white);
+        transition: background 0.15s;
+      }
+      .result-card:hover {
+        background: var(--mist);
+      }
+      .result-client {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 3px;
+      }
+      .result-scope {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--stone-light);
+        margin-bottom: 1rem;
+      }
+      .result-stat {
+        font-family: var(--serif);
+        font-size: 40px;
+        font-weight: 600;
+        color: var(--purple-deep);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .result-desc {
+        font-size: 13px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.75;
+      }
+      .result-tag {
+        display: inline-block;
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 4px 12px;
+        border-radius: 12px;
+        background: var(--gold-pale);
+        color: var(--gold);
+        margin-top: 1rem;
+      }
+
+      /* ─── OUR WORK ─── */
+      .work-section {
+        background: var(--ink);
+        padding: 7rem 5vw;
+      }
+      .work-section .section-label {
+        color: var(--gold);
+      }
+      .work-section .section-label::after {
+        background: var(--gold);
+      }
+      .work-heading {
+        font-family: var(--serif);
+        font-size: 42px;
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .work-sub {
+        font-size: 15px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 4rem;
+      }
+
+      .work-block {
+        margin-bottom: 4rem;
+      }
+      .work-block:last-child {
+        margin-bottom: 0;
+      }
+      .work-block-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* Carousel */
+      .carousel-wrap {
+        position: relative;
+      }
+      .carousel {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 8px;
+        cursor: grab;
+        user-select: none;
+      }
+      .carousel:active {
+        cursor: grabbing;
+      }
+      .carousel::-webkit-scrollbar {
+        height: 3px;
+      }
+      .carousel::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 2px;
+      }
+      .carousel::-webkit-scrollbar-thumb {
+        background: rgba(184, 150, 90, 0.4);
+        border-radius: 2px;
+      }
+      .carousel-item {
+        flex: 0 0 260px;
+        aspect-ratio: 4/5;
+        border-radius: 8px;
+        overflow: hidden;
+        scroll-snap-align: start;
+        background: var(--ink-soft);
+        position: relative;
+      }
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s;
+      }
+      .carousel-item:hover img {
+        transform: scale(1.03);
+      }
+      .carousel-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: linear-gradient(160deg, #1a1025 0%, #2d1654 100%);
+        padding: 1rem;
+        text-align: center;
+      }
+      .cp-num {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 300;
+        color: rgba(184, 150, 90, 0.3);
+      }
+      .cp-label {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* Design reels — square */
+      .carousel-item.reel {
+        flex: 0 0 220px;
+        aspect-ratio: 9/16;
+      }
+
+      /* Website grid */
+      .website-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .website-item {
+        aspect-ratio: 16/10;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--ink-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .website-item::after {
+        content: "↗";
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.4);
+        transition: color 0.2s;
+      }
+      .website-item:hover::after {
+        color: var(--gold-light);
+      }
+      .website-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s;
+      }
+      .website-item:hover img {
+        transform: scale(1.04);
+      }
+      .website-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: linear-gradient(160deg, #1a1025 0%, #2d1654 100%);
+        padding: 1rem;
+        text-align: center;
+      }
+      .wp-name {
+        font-family: var(--serif);
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .wp-type {
+        font-size: 9px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(184, 150, 90, 0.5);
+      }
+
+      /* ─── WHO WE WORK WITH ─── */
+      .ideal-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+      .ideal-card {
+        background: var(--white);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .ideal-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+      }
+      .ideal-icon {
+        font-size: 22px;
+        margin-bottom: 1rem;
+      }
+      .ideal-head {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 1.25rem;
+      }
+      .ideal-item {
+        font-size: 13px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.6;
+        padding: 8px 0;
+        border-bottom: 0.5px solid var(--border);
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .ideal-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .ideal-item::before {
+        content: "—";
+        color: var(--gold);
+        font-size: 12px;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+
+      /* ─── TESTIMONIALS ─── */
+      .testimonials-bg {
+        background: var(--white);
+      }
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+      .testimonial {
+        padding: 2rem;
+        background: var(--mist);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        position: relative;
+      }
+      .testimonial::before {
+        content: "\201C";
+        position: absolute;
+        top: 1.25rem;
+        right: 1.5rem;
+        font-family: var(--serif);
+        font-size: 60px;
+        line-height: 1;
+        color: var(--gold-pale);
+      }
+      .testimonial-quote {
+        font-family: var(--serif);
+        font-size: 15px;
+        font-style: italic;
+        color: var(--ink-soft);
+        line-height: 1.75;
+        margin-bottom: 1.25rem;
+        position: relative;
+        z-index: 1;
+      }
+      .testimonial-author {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .testimonial-co {
+        font-size: 11px;
+        color: var(--stone);
+        margin-top: 2px;
+      }
+
+      /* ─── CTA + FORM ─── */
+      .cta-section {
+        padding: 7rem 5vw;
+      }
+      .cta-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+      }
+      .cta-left {
+      }
+      .cta-headline {
+        font-family: var(--serif);
+        font-size: 44px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+      .cta-headline em {
+        color: var(--purple-mid);
+        font-style: italic;
+      }
+      .cta-sub {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+      }
+      .fun-note {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--serif);
+        font-size: 13px;
+        font-style: italic;
+        color: var(--stone);
+        padding: 10px 18px;
+        background: var(--gold-pale);
+        border-radius: 20px;
+        margin-bottom: 2.5rem;
+      }
+      .contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .contact-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+      .contact-val {
+        font-size: 14px;
+        color: var(--ink-soft);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .contact-val:hover {
+        color: var(--purple-mid);
+      }
+
+      .form-wrap {
+        background: var(--white);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 2.5rem;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-field.full {
+        grid-column: 1/-1;
+      }
+      .form-label {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        font-family: var(--sans);
+        font-size: 14px;
+        color: var(--ink);
+        background: var(--mist);
+        border: 0.5px solid var(--border-mid);
+        border-radius: 8px;
+        padding: 11px 14px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        border-color: var(--gold);
+        background: var(--white);
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .form-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A7F8D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+      }
+      .form-submit {
+        width: 100%;
+        font-family: var(--sans);
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        background: var(--purple-deep);
+        border: none;
+        border-radius: 20px;
+        padding: 15px 28px;
+        cursor: pointer;
+        margin-top: 1.25rem;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .form-submit:hover {
+        background: var(--purple-mid);
+        transform: translateY(-1px);
+      }
+      .form-note {
+        font-size: 11px;
+        color: var(--stone-light);
+        margin-top: 0.75rem;
+        text-align: center;
+        line-height: 1.6;
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        border-top: 0.5px solid var(--border);
+        padding: 2rem 5vw;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+      }
+      .footer-logo img {
+        height: 64px;
+        width: auto;
+        display: block;
+      }
+      .footer-logo-placeholder {
+        height: 30px;
+        width: 100px;
+        background: var(--mist-mid);
+        border: 1.5px dashed var(--border-mid);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--stone-light);
+      }
+      .footer-copy {
+        font-size: 12px;
+        color: var(--stone);
+      }
+
+      /* ─── FADE-IN ANIMATION ─── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ─── MOBILE ─── */
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .hero-right {
+          order: -1;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .video-frame {
+          max-height: 400px;
+        }
+        .belief-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .cta-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .website-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (max-width: 640px) {
+        .hero-h {
+          font-size: 36px;
+        }
+        .cta-headline {
+          font-size: 32px;
+        }
+        .proof-bar-inner {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem 0;
+        }
+        .proof-item {
+          border-right: none;
+          border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+          padding: 1rem 0;
+        }
+        .proof-item:nth-child(odd) {
+          border-right: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+        .results-grid {
+          grid-template-columns: 1fr;
+        }
+        .ideal-grid {
+          grid-template-columns: 1fr;
+        }
+        .testimonial-grid {
+          grid-template-columns: 1fr;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+        .website-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sameline{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#" class="logo">
+          <!-- Replace with: <img src="your-logo.png" alt="RARA Digital"> -->
+          <img src="assets/Rara_logo.png" alt="RARA Digital">
+        </a>
+        <div class="nav-links">
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#results" class="nav-link">Results</a>
+          <a href="#contact" class="nav-cta">Schedule A Call</a>
+        </div>
+        <div class="nav-hamburger" onclick="toggleMenu(this)">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-left fade-up">
+          <h1 class="hero-h">
+            Your business has earned its reputation. Now let the
+            <em>right people</em> find it.
+          </h1>
+          <p class="hero-sub">
+            RARA works with a select group of established businesses ready to
+            build a digital presence that matches their real-world standing.
+          </p>
+          <a href="#contact" class="hero-btn">
+            Schedule a Strategy Call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-right fade-up" style="transition-delay: 0.15s">
+          <div class="video-frame">
+            <!-- Replace src with actual showreel video -->
+            <video id="showreel" preload="metadata" poster="">
+              <source src="assets/showreel.mp4" type="video/mp4" />
+            </video>
+            <div class="video-play-btn" id="playBtn" onclick="playVideo()">
+              <div class="play-circle">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M7 4.5L17 11L7 17.5V4.5Z" fill="white" />
+                </svg>
+              </div>
+            </div>
+            <div class="video-placeholder" id="videoPlaceholder">
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                style="opacity: 0.25"
+              >
+                <path d="M6 6l24 12L6 30V6z" fill="white" />
+              </svg>
+              <div class="video-placeholder-label">Our Showreel</div>
+              <div class="video-placeholder-sub">
+                Add video source to activate
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER NOTE -->
+    <div style="background: var(--purple-deep); padding: 3rem 5vw; border-top: 0.5px solid rgba(255,255,255,0.08);">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 2rem; align-items: flex-start;">
+        <div style="flex-shrink: 0; width: 4px; background: var(--gold); border-radius: 2px; align-self: stretch; min-height: 80px;"></div>
+        <div>
+          <div style="font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;">A Note from the Founder</div>
+          <blockquote style=" font-size: 20px; font-weight: 300; color: rgba(255,255,255,0.88); line-height: 1.75; margin: 0 0 1.25rem; ">"We don't chase trends; we build digital assets that reflect your real-world reputation. Having led campaigns for India’s largest brands and built my own online business to 100% digital sales, I understand that every rupee must drive ROI. Let’s talk about how we can scale yours."</blockquote>
+          <div style="font-size: 13px; font-weight: 500; color: var(--gold-light); letter-spacing: 0.04em;">— Ridhi Chawla</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BELIEF + SERVICES -->
+    <section class="section belief" id="services">
+      <div class="belief-inner">
+        <div class="belief-left fade-up">
+          <div class="section-label">Our Belief</div>
+          <div class="belief-quote">
+            Being seen isn't enough. Your brand needs to be chosen.
+          </div>
+          <p class="belief-body">
+            Most agencies will post for you. We build the strategy behind why
+            someone stops, reads, trusts, and books. We don't chase trends. We
+            build digital authority — the kind that compounds over time and
+            turns strangers into loyal, revenue-generating customers.
+          </p>
+        </div>
+        <div class="belief-right fade-up" style="transition-delay: 0.15s">
+          <div class="services-heading">Here's how we do that:</div>
+          <ul class="services-list">
+            <li>
+              <a href="#" class="service-item"><span class="svc-name">Brand Strategy</span></a>
+            </li>
+            <li>
+              <a href="#" class="service-item"
+                ><span class="svc-name">Design</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#" class="service-item"
+                ><span class="svc-name">Content Production</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#" class="service-item"
+                ><span class="svc-name">Social Media Management</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#" class="service-item"
+                ><span class="svc-name">Performance Marketing</span
+                ></a
+              >
+            </li>
+            <li>
+              <a href="#" class="service-item"
+                ><span class="svc-name">Website Design & Development</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- OUR WORK -->
+    <section class="work-section" id="work">
+      <div class="section-inner">
+        <div class="section-label fade-up">Our Work</div>
+        <h2 class="work-heading fade-up">Work that speaks.</h2>
+        <p class="work-sub fade-up">
+          A look at what we create — scroll, explore, and get a feel for the
+          quality we bring to every brief.
+        </p>
+
+        <!-- Social Media Content -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Social Media Content</div>
+          <div class="carousel-wrap">
+            <div class="carousel" id="carousel-social">
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">01</div>
+                  <div class="cp-label">Snip Salon · Feed Post</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">02</div>
+                  <div class="cp-label">Resin Art Store · Story</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">03</div>
+                  <div class="cp-label">Kaizen · Feed Post</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">04</div>
+                  <div class="cp-label">Villa Donna · Social</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">05</div>
+                  <div class="cp-label">Campaign Creative</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">06</div>
+                  <div class="cp-label">Brand Moment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Production -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Production</div>
+          <div class="carousel-wrap">
+            <div class="carousel" id="carousel-production">
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">01</div>
+                  <div class="cp-label">Snip Salon · BTS</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">02</div>
+                  <div class="cp-label">Product Shoot · Resin Art</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">03</div>
+                  <div class="cp-label">Kaizen · Studio</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">04</div>
+                  <div class="cp-label">Villa Donna · Property</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">05</div>
+                  <div class="cp-label">Brand Film Still</div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">06</div>
+                  <div class="cp-label">On Location</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design / Reels -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Design & Reels</div>
+          <div class="carousel-wrap">
+            <div class="carousel" id="carousel-design">
+              <div class="carousel-item reel">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">▶</div>
+                  <div class="cp-label">Snip Salon · Brand Reel</div>
+                </div>
+              </div>
+              <div class="carousel-item reel">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">▶</div>
+                  <div class="cp-label">Resin Art · 408K Views</div>
+                </div>
+              </div>
+              <div class="carousel-item reel">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">▶</div>
+                  <div class="cp-label">Influencer · 185K Views</div>
+                </div>
+              </div>
+              <div class="carousel-item reel">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">▶</div>
+                  <div class="cp-label">Campaign Reel</div>
+                </div>
+              </div>
+              <div class="carousel-item reel">
+                <div class="carousel-placeholder">
+                  <div class="cp-num">▶</div>
+                  <div class="cp-label">Brand Moment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Websites -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Website Design & Development</div>
+          <div class="website-grid">
+            <a href="#" target="_blank" class="website-item"
+              ><div class="website-placeholder">
+                <div class="wp-name">Snip Salon & Spa</div>
+                <div class="wp-type">Website</div>
+              </div></a
+            >
+            <a href="#" target="_blank" class="website-item"
+              ><div class="website-placeholder">
+                <div class="wp-name">Villa Donna</div>
+                <div class="wp-type">Website</div>
+              </div></a
+            >
+            <a href="#" target="_blank" class="website-item"
+              ><div class="website-placeholder">
+                <div class="wp-name">Kaizen Studio</div>
+                <div class="wp-type">Website</div>
+              </div></a
+            >
+          </div>
+          <p
+            style="
+              font-size: 12px;
+              color: rgba(255, 255, 255, 0.25);
+              margin-top: 1rem;
+              font-style: italic;
+            "
+          >
+            Replace placeholder backgrounds with screenshots — clicking opens
+            the live site.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE WORK WITH -->
+    <section class="section" style="background: var(--white)">
+      <div class="section-inner">
+        <div class="section-label fade-up">Who We Work With</div>
+        <p
+          style="
+            font-size: 15px;
+            font-weight: 300;
+            color: var(--stone);
+            line-height: 1.85;
+
+            margin-bottom: 0;
+          "
+          class="fade-up"
+        >
+          Our best work happens with businesses that share a particular kind of
+          ambition — one built on long-term thinking, not short-term noise.
+        </p>
+        <div class="ideal-grid fade-up">
+          <div class="ideal-card">
+            <div class="sameline">
+            <div class="ideal-icon">◈</div>
+            <div class="ideal-head">Established businesses ready to grow</div>
+            </div>
+            <div class="ideal-item">
+              You have a reputation — and you want the world to know it
+            </div>
+            <div class="ideal-item">You're thinking in years, not weeks</div>
+            <div class="ideal-item">
+              You want measurable growth, not just visibility
+            </div>
+            <div class="ideal-item">
+              You value craft and are willing to invest in it
+            </div>
+          </div>
+          <div class="ideal-card">
+            <div class="sameline">
+            <div class="ideal-icon">◈</div>
+            <div class="ideal-head">Founders who want a real partner</div>
+            </div>
+            <div class="ideal-item">
+              You want someone who understands your business, not just your
+              brief
+            </div>
+            <div class="ideal-item">
+              You're open to honest strategy, even when it challenges
+              assumptions
+            </div>
+            <div class="ideal-item">
+              You believe the best brands are built with intention
+            </div>
+            <div class="ideal-item">
+              You want one team that owns the full picture
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT RESULTS -->
+    <section class="section" id="results" style="background: var(--mist)">
+      <div class="section-inner">
+        <div class="section-label fade-up">Client Results</div>
+        <div class="results-grid fade-up">
+          <div class="result-card">
+            <div class="result-client">Resin Art Store India</div>
+            <div class="result-scope">Brand strategy · Social · Influencer</div>
+            <div class="result-stat">100% Sales</div>
+            <p class="result-desc">
+              Built an entire e-commerce brand from the ground up. All revenue
+              driven through social media alone — no paid ads, no retail shelf.
+              Grew to 15K+ community and 40% revenue growth YoY for three
+              consecutive years.
+            </p>
+            <div class="result-tag">Founder-built</div>
+          </div>
+          <div class="result-card">
+            <div class="result-client">Snip Salon & Spa</div>
+            <div class="result-scope">Content production · Social media</div>
+            <div class="result-stat">300% Reach</div>
+            <p class="result-desc">
+              Tripled social engagement and reach for a 25-year-old salon brand.
+              Elevated the digital identity to match the premium in-store
+              experience — measurable increases in new client bookings followed.
+            </p>
+            <div class="result-tag">Engagement + Reach</div>
+          </div>
+          <div class="result-card">
+            <div class="result-client">Kaizen</div>
+            <div class="result-scope">Performance marketing · Local SEO</div>
+            <div class="result-stat">+50% Footfall</div>
+            <p class="result-desc">
+              Increased in-studio and café footfalls by 50% in just 4 months
+              through targeted local marketing, social strategy, and content
+              that brought the Kaizen experience to life online.
+            </p>
+            <div class="result-tag">Footfall Growth</div>
+          </div>
+          <div class="result-card">
+            <div class="result-client">Villa Donna</div>
+            <div class="result-scope">Performance marketing · Hospitality</div>
+            <div class="result-stat">+25% Leads</div>
+            <p class="result-desc">
+              Increased qualified leads by 25% through targeted performance
+              marketing. Direct, measurable impact on occupancy — the kind of
+              ROI a premium hospitality brand demands.
+            </p>
+            <div class="result-tag">Performance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-bg">
+      <div class="section-inner">
+        <div class="section-label fade-up">Client Reflections</div>
+        <div class="testimonial-grid fade-up">
+          <div class="testimonial">
+            <div class="testimonial-quote">
+              "Add a strong client testimonial here. One genuine quote from a
+              satisfied client will do more for conversion than anything else on
+              this page."
+            </div>
+            <div class="testimonial-author">Client Name</div>
+            <div class="testimonial-co">Business · City</div>
+          </div>
+          <div class="testimonial">
+            <div class="testimonial-quote">
+              "A quote from a fellow legacy business owner. HNI clients respond
+              to peer validation more than any credential or case study."
+            </div>
+            <div class="testimonial-author">Client Name</div>
+            <div class="testimonial-co">Business · City</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA + FORM -->
+    <section class="cta-section" id="contact">
+      <div class="cta-inner">
+        <div class="cta-left fade-up">
+          <h2 class="cta-headline">
+            Ready to make your brand as <em>undeniable online</em> as it is in
+            the room?
+          </h2>
+          <p class="cta-sub">
+            A 15-minute call is all it takes to know if we're the right fit.
+          </p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <a class="contact-val" href="mailto:ridhi@raradigital.in"
+                >ridhi@raradigital.in</a
+              >
+            </div>
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <a class="contact-val" href="tel:+919536463555"
+                >+91 95364 63555</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="cta-right fade-up" style="transition-delay: 0.15s">
+          <div class="form-wrap">
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label">Your Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  placeholder="Priya Mehta"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Business Name</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  placeholder="Your brand"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Email</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  placeholder="you@yourbrand.com"
+                />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Phone</label>
+                <input
+                  class="form-input"
+                  type="tel"
+                  placeholder="+91 98765 43210"
+                />
+              </div>
+              <div class="form-field full">
+                <label class="form-label">Best Time to Contact</label>
+                <select class="form-select form-input">
+                  <option value="" disabled selected>Select a time</option>
+                  <option>Morning (9am – 12pm)</option>
+                  <option>Afternoon (12pm – 4pm)</option>
+                  <option>Evening (4pm – 7pm)</option>
+                  <option>Flexible / Anytime</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label class="form-label">What Are You Looking to Build?</label>
+                <select class="form-select form-input">
+                  <option value="" disabled selected>
+                    Select what fits best
+                  </option>
+                  <option>Brand strategy from scratch</option>
+                  <option>Website design & development</option>
+                  <option>Social media management</option>
+                  <option>Content production & design</option>
+                  <option>Performance marketing</option>
+                  <option>Full-service partnership</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label class="form-label">Anything Else We Should Know?</label>
+                <textarea
+                  class="form-textarea"
+                  placeholder="Tell us about your business, your goals, or what's not working right now."
+                ></textarea>
+              </div>
+            </div>
+            <button class="form-submit">Submit — let's talk strategy →</button>
+            <div class="form-note">
+              We respond within 24 hours. We take on a limited number of clients
+              each quarter.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <!-- Replace with: <img src="your-logo.png" alt="RARA Digital"> -->
+          <img src="assets/Rara_logo.png" alt="RARA Digital">
+        </div>
+        <div class="footer-copy">
+          © 2025 RARA Digital Marketing. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Video play
+      function playVideo() {
+        const video = document.getElementById("showreel");
+        const btn = document.getElementById("playBtn");
+        const placeholder = document.getElementById("videoPlaceholder");
+
+        placeholder.style.display = "none";
+        btn.classList.add("hidden");
+        video.style.display = "block";
+        video.play().catch(() => {
+          placeholder.style.display = "flex";
+          btn.classList.remove("hidden");
+        });
+      }
+
+      // Fade-up observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".fade-up")
+        .forEach((el) => observer.observe(el));
+
+      // Drag-to-scroll carousels
+      document.querySelectorAll(".carousel").forEach((carousel) => {
+        let isDown = false,
+          startX,
+          scrollLeft;
+        carousel.addEventListener("mousedown", (e) => {
+          isDown = true;
+          startX = e.pageX - carousel.offsetLeft;
+          scrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener("mouseleave", () => (isDown = false));
+        carousel.addEventListener("mouseup", () => (isDown = false));
+        carousel.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - carousel.offsetLeft;
+          carousel.scrollLeft = scrollLeft - (x - startX) * 1.2;
+        });
+        // Touch
+        let touchStartX, touchScrollLeft;
+        carousel.addEventListener("touchstart", (e) => {
+          touchStartX = e.touches[0].pageX;
+          touchScrollLeft = carousel.scrollLeft;
+        });
+        carousel.addEventListener("touchmove", (e) => {
+          const dx = touchStartX - e.touches[0].pageX;
+          carousel.scrollLeft = touchScrollLeft + dx;
+        });
+      });
+
+      // Mobile menu toggle
+      function toggleMenu(btn) {
+        const links = document.querySelector(".nav-links");
+        links.style.display = links.style.display === "flex" ? "none" : "flex";
+        links.style.flexDirection = "column";
+        links.style.position = "absolute";
+        links.style.top = "72px";
+        links.style.left = 0;
+        links.style.right = 0;
+        links.style.background = "rgba(247,244,239,0.98)";
+        links.style.padding = "1.5rem 5vw 2rem";
+        links.style.borderBottom = "0.5px solid var(--border)";
+        links.style.backdropFilter = "blur(12px)";
+        links.style.gap = "1.25rem";
+        links.style.zIndex = 99;
+      }
+    </script>
+  </body>
+</html>
