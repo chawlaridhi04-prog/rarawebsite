@@ -8,6 +8,16 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({ publicKey: "YOUR_EMAILJS_PUBLIC_KEY" });
+      })();
+    </script>
     <style>
       *,
       *::before,
@@ -16,12 +26,10 @@
         margin: 0;
         padding: 0;
       }
-
       :root {
         --gold: #b8965a;
         --gold-light: #d4af7a;
         --gold-pale: #f5edd8;
-        --gold-dim: rgba(184, 150, 90, 0.12);
         --purple-deep: #390a47;
         --purple-mid: #4a2c7a;
         --purple-light: #7b5ea7;
@@ -38,17 +46,16 @@
         --sans: "Outfit", system-ui, sans-serif;
         --nav-h: 72px;
       }
-
       html {
         scroll-behavior: smooth;
       }
-
       body {
         font-family: var(--sans);
         background: var(--mist);
         color: var(--ink);
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
+        font-size: 16px; /* BASE SIZE — all body text scales from here */
       }
 
       /* ─── NAV ─── */
@@ -90,7 +97,7 @@
         gap: 2.5rem;
       }
       .nav-link {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 400;
         color: var(--stone);
         text-decoration: none;
@@ -101,7 +108,7 @@
         color: var(--ink);
       }
       .nav-cta {
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 500;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -161,24 +168,6 @@
         gap: 5rem;
         align-items: center;
       }
-      .hero-eyebrow {
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--gold);
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      .hero-eyebrow::before {
-        content: "";
-        display: block;
-        width: 32px;
-        height: 1px;
-        background: var(--gold);
-      }
       .hero-h {
         font-family: var(--serif);
         font-size: 52px;
@@ -192,7 +181,7 @@
         color: var(--purple-mid);
       }
       .hero-sub {
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 300;
         line-height: 1.8;
         color: var(--stone);
@@ -203,7 +192,7 @@
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         letter-spacing: 0.04em;
         color: var(--white);
@@ -227,7 +216,6 @@
       .hero-btn:hover svg {
         transform: translateX(3px);
       }
-
       .hero-right {
         position: relative;
         display: flex;
@@ -247,7 +235,8 @@
       .video-frame video {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        background: #0f0a18;
         display: block;
       }
       .video-play-btn {
@@ -318,13 +307,13 @@
         margin-bottom: 6px;
       }
       .proof-label {
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.55);
         line-height: 1.5;
       }
 
-      /* ─── SHARED SECTION ─── */
+      /* ─── SECTION ─── */
       .section {
         padding: 7rem 5vw;
       }
@@ -333,7 +322,7 @@
         margin: 0 auto;
       }
       .section-label {
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.22em;
         text-transform: uppercase;
@@ -366,7 +355,7 @@
         margin-bottom: 1.5rem;
       }
       .belief-body {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 300;
         color: var(--stone);
         line-height: 1.9;
@@ -391,7 +380,6 @@
         padding: 1.1rem 1.25rem;
         background: var(--mist);
         border-radius: 6px;
-        cursor: pointer;
         transition: all 0.2s;
         text-decoration: none;
         border: 0.5px solid transparent;
@@ -401,7 +389,7 @@
         border-color: var(--border-mid);
       }
       .svc-name {
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         color: var(--ink);
       }
@@ -440,13 +428,6 @@
         color: var(--ink);
         margin-bottom: 3px;
       }
-      .result-scope {
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--stone-light);
-        margin-bottom: 1rem;
-      }
       .result-stat {
         font-family: var(--serif);
         font-size: 40px;
@@ -456,21 +437,10 @@
         margin-bottom: 6px;
       }
       .result-desc {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 300;
         color: var(--stone);
         line-height: 1.75;
-      }
-      .result-tag {
-        display: inline-block;
-        font-size: 10px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        padding: 4px 12px;
-        border-radius: 12px;
-        background: var(--gold-pale);
-        color: var(--gold);
-        margin-top: 1rem;
       }
 
       /* ─── OUR WORK ─── */
@@ -489,7 +459,7 @@
         margin-bottom: 0.5rem;
       }
       .work-sub {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.45);
         margin-bottom: 4rem;
@@ -501,7 +471,7 @@
         margin-bottom: 0;
       }
       .work-block-label {
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         letter-spacing: 0.16em;
         text-transform: uppercase;
@@ -511,10 +481,21 @@
         border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
       }
 
-      /* ─── CAROUSEL ─── */
-      .carousel-wrap {
-        position: relative;
+      /* ─── SOCIAL TWO-ROW ─── */
+      .social-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
       }
+      .social-row-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        margin-bottom: 10px;
+      }
+
+      /* ─── CAROUSEL ─── */
       .carousel {
         display: flex;
         gap: 14px;
@@ -540,26 +521,39 @@
         border-radius: 2px;
       }
 
-      /* Social / production: vertical 4/5 */
+      /* wrapper that holds item + label */
+      .media-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+      }
+      .media-wrap.v {
+        width: 200px;
+      }
+      .media-wrap.h {
+        width: 360px;
+      }
+      .media-wrap.d {
+        width: 280px;
+      }
+
+      /* the clickable media box */
       .carousel-item {
-        flex: 0 0 260px;
-        aspect-ratio: 9/16;
+        position: relative;
         border-radius: 8px;
         overflow: hidden;
-        scroll-snap-align: start;
         background: var(--ink-soft);
-        position: relative;
+        width: 100%;
       }
-
-      /* Design images: landscape 4/5 */
-      .carousel-item.design-img {
-        flex: 0 0 280px;
-        aspect-ratio: 3/4;
+      .carousel-item.v {
+        aspect-ratio: 9/16;
       }
-
-      /* Production images: portrait */
-      .carousel-item.production-img {
-        flex: 0 0 260px;
+      .carousel-item.h {
+        aspect-ratio: 16/9;
+      }
+      .carousel-item.d {
         aspect-ratio: 3/4;
       }
 
@@ -569,14 +563,71 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        transition: transform 0.4s;
+        transition:
+          transform 0.4s,
+          opacity 0.5s;
+        opacity: 0;
+      }
+      .carousel-item img.loaded,
+      .carousel-item video.loaded {
+        opacity: 1;
       }
       .carousel-item:hover img,
       .carousel-item:hover video {
         transform: scale(1.03);
       }
 
-      /* Video overlay play button */
+      /* brand label */
+      .media-label {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 0 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .media-label strong {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+      }
+      .media-label span {
+        font-size: 10px;
+        font-weight: 300;
+        color: rgba(184, 150, 90, 0.7);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-left: 6px;
+      }
+
+      /* skeleton shimmer */
+      .skeleton {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          #1a1025 25%,
+          #2d1654 50%,
+          #1a1025 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        z-index: 1;
+        transition: opacity 0.4s;
+      }
+      .skeleton.gone {
+        opacity: 0;
+        pointer-events: none;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* play overlay */
       .reel-play-btn {
         position: absolute;
         inset: 0;
@@ -606,45 +657,25 @@
         margin-left: 2px;
       }
 
-      .carousel-placeholder {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        padding: 1rem;
-        text-align: center;
-        background: linear-gradient(160deg, #1a1025 0%, #2d1654 100%);
-      }
-      .cp-num {
-        font-family: var(--serif);
-        font-size: 36px;
-        font-weight: 300;
-        color: rgba(184, 150, 90, 0.3);
-      }
-      .cp-label {
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.25);
-      }
-
       /* ─── WEBSITE GRID ─── */
       .website-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 14px;
+        gap: 20px;
       }
-.website-item {
-  aspect-ratio: 16/10;
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-  display: block;          /* change from flex to block */
-  text-decoration: none;
-}
+      .site-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .website-item {
+        aspect-ratio: 16/10;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        display: block;
+        text-decoration: none;
+      }
       .website-item::after {
         content: "↗";
         position: absolute;
@@ -657,41 +688,37 @@
       .website-item:hover::after {
         color: var(--gold-light);
       }
-.website-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;   /* shows the top of the page, not center */
-  display: block;
-  transition: transform 0.4s;
-}
-
-.website-item:hover img {
-  transform: scale(1.04);
-}
-      .website-placeholder {
+      .website-item img {
         width: 100%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        padding: 1rem;
-        text-align: center;
-        background: linear-gradient(160deg, #1a1025 0%, #2d1654 100%);
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition:
+          transform 0.4s,
+          opacity 0.5s;
+        opacity: 0;
       }
-      .wp-name {
-        font-family: var(--serif);
-        font-size: 14px;
+      .website-item img.loaded {
+        opacity: 1;
+      }
+      .website-item:hover img {
+        transform: scale(1.04);
+      }
+      .site-label {
+        font-size: 13px;
         font-weight: 500;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.75);
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
-      .wp-type {
-        font-size: 9px;
-        letter-spacing: 0.12em;
+      .site-label span {
+        font-size: 10px;
+        font-weight: 300;
+        color: rgba(184, 150, 90, 0.7);
+        letter-spacing: 0.1em;
         text-transform: uppercase;
-        color: rgba(184, 150, 90, 0.5);
       }
 
       /* ─── WHO WE WORK WITH ─── */
@@ -730,7 +757,7 @@
         margin-bottom: 1.25rem;
       }
       .ideal-item {
-        font-size: 13px;
+        font-size: 15px;
         font-weight: 300;
         color: var(--stone);
         line-height: 1.6;
@@ -751,56 +778,13 @@
         margin-top: 1px;
         flex-shrink: 0;
       }
-
-      /* ─── TESTIMONIALS ─── */
-      .testimonials-bg {
-        background: var(--white);
-      }
-      .testimonial-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-        margin-top: 2.5rem;
-      }
-      .testimonial {
-        padding: 2rem;
-        background: var(--mist);
-        border: 0.5px solid var(--border);
-        border-radius: 10px;
-        position: relative;
-      }
-      .testimonial::before {
-        content: "\201C";
-        position: absolute;
-        top: 1.25rem;
-        right: 1.5rem;
-        font-family: var(--serif);
-        font-size: 60px;
-        line-height: 1;
-        color: var(--gold-pale);
-      }
-      .testimonial-quote {
-        font-family: var(--serif);
-        font-size: 15px;
-        font-style: italic;
-        color: var(--ink-soft);
-        line-height: 1.75;
-        margin-bottom: 1.25rem;
-        position: relative;
-        z-index: 1;
-      }
-      .testimonial-author {
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--ink);
-      }
-      .testimonial-co {
-        font-size: 11px;
-        color: var(--stone);
-        margin-top: 2px;
+      .sameline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
 
-      /* ─── CTA + FORM ─── */
+      /* ─── FORM ─── */
       .cta-section {
         padding: 7rem 5vw;
       }
@@ -825,7 +809,7 @@
         font-style: italic;
       }
       .cta-sub {
-        font-size: 15px;
+        font-size: 16px;
         font-weight: 300;
         color: var(--stone);
         line-height: 1.8;
@@ -849,7 +833,7 @@
         flex-shrink: 0;
       }
       .contact-val {
-        font-size: 14px;
+        font-size: 15px;
         color: var(--ink-soft);
         text-decoration: none;
         transition: color 0.2s;
@@ -857,7 +841,6 @@
       .contact-val:hover {
         color: var(--purple-mid);
       }
-
       .form-wrap {
         background: var(--white);
         border: 0.5px solid var(--border);
@@ -878,7 +861,7 @@
         grid-column: 1/-1;
       }
       .form-label {
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -888,7 +871,7 @@
       .form-select,
       .form-textarea {
         font-family: var(--sans);
-        font-size: 14px;
+        font-size: 15px;
         color: var(--ink);
         background: var(--mist);
         border: 0.5px solid var(--border-mid);
@@ -917,7 +900,7 @@
       .form-submit {
         width: 100%;
         font-family: var(--sans);
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 500;
         letter-spacing: 0.04em;
         color: var(--white);
@@ -941,19 +924,17 @@
         transform: none;
       }
       .form-note {
-        font-size: 11px;
+        font-size: 12px;
         color: var(--stone-light);
         margin-top: 0.75rem;
         text-align: center;
         line-height: 1.6;
       }
-
-      /* Form status messages */
       .form-status {
         display: none;
         padding: 14px 18px;
         border-radius: 8px;
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 400;
         margin-top: 1rem;
         text-align: center;
@@ -988,8 +969,6 @@
         padding-bottom: 4rem;
         border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
       }
-      .footer-brand {
-      }
       .footer-logo {
         display: flex;
         align-items: center;
@@ -1000,7 +979,7 @@
         width: auto;
       }
       .footer-tagline {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.45);
         line-height: 1.8;
@@ -1028,9 +1007,8 @@
         border-color: var(--gold);
         color: var(--gold-light);
       }
-
       .footer-col-title {
-        font-size: 10px;
+        font-size: 11px;
         font-weight: 500;
         letter-spacing: 0.2em;
         text-transform: uppercase;
@@ -1044,7 +1022,7 @@
         gap: 0.85rem;
       }
       .footer-nav li a {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.55);
         text-decoration: none;
@@ -1053,16 +1031,13 @@
       .footer-nav li a:hover {
         color: var(--white);
       }
-
       .footer-contact-items {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
-      .footer-contact-item {
-      }
       .footer-contact-label {
-        font-size: 9px;
+        font-size: 10px;
         font-weight: 500;
         letter-spacing: 0.16em;
         text-transform: uppercase;
@@ -1070,7 +1045,7 @@
         margin-bottom: 3px;
       }
       .footer-contact-val {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 300;
         color: rgba(255, 255, 255, 0.6);
         text-decoration: none;
@@ -1079,26 +1054,17 @@
       .footer-contact-val:hover {
         color: var(--gold-light);
       }
-
       .footer-locations {
         display: flex;
         flex-direction: column;
         gap: 1rem;
       }
-      .footer-location {
-      }
       .footer-location-city {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: 500;
         color: rgba(255, 255, 255, 0.7);
         margin-bottom: 2px;
       }
-      .footer-location-state {
-        font-size: 11px;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.3);
-      }
-
       .footer-bottom {
         display: flex;
         justify-content: space-between;
@@ -1108,24 +1074,11 @@
         gap: 1rem;
       }
       .footer-copy {
-        font-size: 11px;
+        font-size: 12px;
         color: rgba(255, 255, 255, 0.25);
-      }
-      .footer-legal {
-        display: flex;
-        gap: 1.5rem;
-      }
-      .footer-legal a {
-        font-size: 11px;
-        color: rgba(255, 255, 255, 0.25);
-        text-decoration: none;
-        transition: color 0.2s;
-      }
-      .footer-legal a:hover {
-        color: rgba(255, 255, 255, 0.5);
       }
 
-      /* ─── FADE-IN ─── */
+      /* ─── FADE UP ─── */
       .fade-up {
         opacity: 0;
         transform: translateY(24px);
@@ -1138,19 +1091,12 @@
         transform: none;
       }
 
-      .sameline {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
       /* ─── MOBILE ─── */
       @media (max-width: 900px) {
         .hero-inner {
           grid-template-columns: 1fr;
           gap: 3rem;
         }
-        /* On small screens: content first (left/top), video second */
         .hero-left {
           order: 1;
         }
@@ -1197,15 +1143,9 @@
         .proof-item:nth-child(odd) {
           border-right: 0.5px solid rgba(255, 255, 255, 0.08);
         }
-        .results-grid {
-          grid-template-columns: 1fr;
-        }
-        .ideal-grid {
-          grid-template-columns: 1fr;
-        }
-        .testimonial-grid {
-          grid-template-columns: 1fr;
-        }
+        .results-grid,
+        .ideal-grid,
+        .testimonial-grid,
         .form-grid {
           grid-template-columns: 1fr;
         }
@@ -1227,11 +1167,15 @@
           align-items: flex-start;
           gap: 0.75rem;
         }
-      }
-
-      .video-frame video {
-        object-fit: contain; /* was cover */
-        background: #0f0a18; /* dark fill behind letterbox */
+        .media-wrap.v {
+          width: 160px;
+        }
+        .media-wrap.h {
+          width: 280px;
+        }
+        .media-wrap.d {
+          width: 220px;
+        }
       }
     </style>
   </head>
@@ -1239,9 +1183,9 @@
     <!-- NAV -->
     <nav class="nav">
       <div class="nav-inner">
-        <a href="#" class="logo">
-          <img src="assets/Rara_logo.png" alt="RARA Digital" />
-        </a>
+        <a href="#" class="logo"
+          ><img src="assets/Rara_logo.png" alt="RARA Digital"
+        /></a>
         <div class="nav-links">
           <a href="#work" class="nav-link">Work</a>
           <a href="#services" class="nav-link">Services</a>
@@ -1257,7 +1201,6 @@
     <!-- HERO -->
     <section class="hero">
       <div class="hero-inner">
-        <!-- Content always first (order: 1 on mobile) -->
         <div class="hero-left fade-up">
           <h1 class="hero-h">
             Your business has earned its reputation. Now let the
@@ -1267,8 +1210,8 @@
             RARA works with a select group of established businesses ready to
             build a digital presence that matches their real-world standing.
           </p>
-          <a href="#contact" class="hero-btn">
-            Schedule a Strategy Call
+          <a href="#contact" class="hero-btn"
+            >Schedule a Strategy Call
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path
                 d="M3 8h10M9 4l4 4-4 4"
@@ -1280,7 +1223,6 @@
             </svg>
           </a>
         </div>
-        <!-- Video second on mobile -->
         <div class="hero-right fade-up" style="transition-delay: 0.15s">
           <div class="video-frame" onclick="toggleShowreel()">
             <video
@@ -1288,7 +1230,6 @@
               preload="metadata"
               playsinline
               poster="assets/Poster.png"
-              style="display: block"
             >
               <source src="assets/showreel.mp4" type="video/mp4" />
             </video>
@@ -1334,7 +1275,7 @@
         <div>
           <div
             style="
-              font-size: 10px;
+              font-size: 11px;
               font-weight: 500;
               letter-spacing: 0.2em;
               text-transform: uppercase;
@@ -1361,7 +1302,7 @@
           </blockquote>
           <div
             style="
-              font-size: 13px;
+              font-size: 14px;
               font-weight: 500;
               color: var(--gold-light);
               letter-spacing: 0.04em;
@@ -1393,37 +1334,31 @@
           <ul class="services-list">
             <li>
               <a class="service-item"
-                ><span class="svc-name">Brand Strategy</span
-                ></a
+                ><span class="svc-name">Brand Strategy</span></a
               >
             </li>
             <li>
-              <a  class="service-item"
-                ><span class="svc-name">Design</span
-                ></a
+              <a class="service-item"><span class="svc-name">Design</span></a>
+            </li>
+            <li>
+              <a class="service-item"
+                ><span class="svc-name">Content Production</span></a
               >
             </li>
             <li>
               <a class="service-item"
-                ><span class="svc-name">Content Production</span
-                ></a
-              >
-            </li>
-            <li>
-              <a  class="service-item"
-                ><span class="svc-name">Social Media Management</span
-                ></a
-              >
-            </li>
-            <li>
-              <a  class="service-item"
-                ><span class="svc-name">Performance Marketing</span
-                ></a
+                ><span class="svc-name">Social Media Management</span></a
               >
             </li>
             <li>
               <a class="service-item"
-                ><span class="svc-name">Website Design & Development</span
+                ><span class="svc-name">Performance Marketing</span></a
+              >
+            </li>
+            <li>
+              <a class="service-item"
+                ><span class="svc-name"
+                  >Website Design &amp; Development</span
                 ></a
               >
             </li>
@@ -1436,251 +1371,423 @@
     <section class="work-section" id="work">
       <div class="section-inner">
         <div class="section-label fade-up">Our Work</div>
-        <h2 class="work-heading fade-up">Work that speaks.</h2>
+        <h2 class="work-heading fade-up">A look at what we create</h2>
         <p class="work-sub fade-up">
-          A look at what we create — scroll, explore, and get a feel for the
-          quality we bring to every brief.
+          Get a feel for the quality we bring to every brief.
         </p>
 
-        <!-- Social Media Content — 6 vertical reels -->
+        <!-- SOCIAL MEDIA — 2 rows -->
         <div class="work-block fade-up">
           <div class="work-block-label">Social Media Content</div>
-          <div class="carousel-wrap">
-            <div class="carousel" id="carousel-social">
-              <!-- All 6 reels: vertical 9/16, lazy-loaded -->
-              <div class="carousel-item" onclick="toggleCarouselVideo(this)">
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/socialmedia/1.mp4"
-                >
-                  <source
-                    data-src="assets/socialmedia/1.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
+          <div class="social-grid">
+            <!-- ROW 1: Vertical 9/16 -->
+            <div>
+              <div class="social-row-label">Reels &amp; Stories</div>
+              <div class="carousel">
+                <!-- Repeat this block per video. Replace Brand Name and file paths. -->
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/2.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/2.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/3.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/3.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/4.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/4.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/5.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/5.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/6.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/6.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/7.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/7.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/8.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/8.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/9.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/9.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
               </div>
-              <div class="carousel-item" onclick="toggleCarouselVideo(this)">
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/socialmedia/2.mp4"
-                >
-                  <source
-                    data-src="assets/socialmedia/2.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
+            </div>
+
+            <!-- ROW 2: Horizontal 16/9 -->
+            <div>
+              <div class="social-row-label">Feed &amp; Campaign Videos</div>
+              <div class="carousel">
+                <div class="media-wrap h">
+                  <div
+                    class="carousel-item h"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/1.mp4"
+                    >
+                      <source
+                        data-src="assets/socialmedia/1.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div class="carousel-item" onclick="toggleCarouselVideo(this)">
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/socialmedia/1.mp4"
-                >
-                  <source
-                    data-src="assets/socialmedia/1.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" onclick="toggleCarouselVideo(this)">
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/socialmedia/2.mp4"
-                >
-                  <source
-                    data-src="assets/socialmedia/2.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" onclick="toggleCarouselVideo(this)">
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/socialmedia/1.mp4"
-                >
-                  <source
-                    data-src="assets/socialmedia/1.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" onclick="toggleCarouselVideo(this)">
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/socialmedia/2.mp4"
-                >
-                  <source
-                    data-src="assets/socialmedia/2.mp4"
-                    type="video/mp4"
-                  />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
-                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Production — 6 images -->
-        <!-- <div class="work-block fade-up">
-          <div class="work-block-label">Production</div>
-          <div class="carousel-wrap">
-            <div class="carousel" id="carousel-production">
-              <div class="carousel-item production-img">
-                <img
-                  loading="lazy"
-                  src="assets/production/1.webp"
-                  alt="Production 1"
-                />
-              </div>
-              <div class="carousel-item production-img">
-                <img
-                  loading="lazy"
-                  src="assets/production/2.webp"
-                  alt="Production 2"
-                />
-              </div>
-              <div class="carousel-item production-img">
-                <img
-                  loading="lazy"
-                  src="assets/production/3.webp"
-                  alt="Production 3"
-                />
-              </div>
-              <div class="carousel-item production-img">
-                <img
-                  loading="lazy"
-                  src="assets/production/4.webp"
-                  alt="Production 4"
-                />
-              </div>
-              <div class="carousel-item production-img">
-                <img
-                  loading="lazy"
-                  src="assets/production/5.webp"
-                  alt="Production 5"
-                />
-              </div>
-              <div class="carousel-item production-img">
-                <img
-                  loading="lazy"
-                  src="assets/production/6.webp"
-                  alt="Production 6"
-                />
-              </div>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Design — 6 images -->
+        <!-- DESIGN — 6 images -->
         <div class="work-block fade-up">
           <div class="work-block-label">Design</div>
-          <div class="carousel-wrap">
-            <div class="carousel" id="carousel-design">
-              <div class="carousel-item design-img">
-                <img loading="lazy" src="assets/design/1.webp" alt="Design 1" />
+          <div class="carousel">
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/1.webp" alt="Design 1" />
               </div>
-              <div class="carousel-item design-img">
-                <img loading="lazy" src="assets/design/2.webp" alt="Design 2" />
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/2.webp" alt="Design 2" />
               </div>
-              <div class="carousel-item design-img">
-                <img loading="lazy" src="assets/design/3.webp" alt="Design 3" />
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/3.webp" alt="Design 3" />
               </div>
-              <div class="carousel-item design-img">
-                <img loading="lazy" src="assets/design/4.webp" alt="Design 4" />
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/4.webp" alt="Design 4" />
               </div>
-              <div class="carousel-item design-img">
-                <img loading="lazy" src="assets/design/5.webp" alt="Design 5" />
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/5.webp" alt="Design 5" />
               </div>
-              <div class="carousel-item design-img">
-                <img loading="lazy" src="assets/design/6.webp" alt="Design 6" />
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/6.webp" alt="Design 6" />
               </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
             </div>
           </div>
         </div>
 
-        <!-- Websites -->
+        <!-- WEBSITES -->
         <div class="work-block fade-up">
-          <div class="work-block-label">Website Design & Development</div>
+          <div class="work-block-label">Website Design &amp; Development</div>
           <div class="website-grid">
-            <a href="https://verystore.in/" target="_blank" rel="noopener" class="website-item">
-              <img loading="lazy" src="assets/website/very.png" alt="Very Store">
-              <div class="website-label">
-                <span class="wp-name">Very Store</span>
-                <span class="wp-type">E-commerce</span>
+            <div class="site-wrap">
+              <a
+                href="https://verystore.in/"
+                target="_blank"
+                rel="noopener"
+                class="website-item"
+              >
+                <div class="skeleton"></div>
+                <img data-src="assets/website/very.png" alt="Very Store" />
+              </a>
+              <div class="site-label">Very Store <span>E-commerce</span></div>
+            </div>
+            <div class="site-wrap">
+              <a
+                href="https://www.snipacademy.co.in/"
+                target="_blank"
+                rel="noopener"
+                class="website-item"
+              >
+                <div class="skeleton"></div>
+                <img data-src="assets/website/snip.png" alt="Snip Academy" />
+              </a>
+              <div class="site-label">Snip Academy <span>Salon</span></div>
+            </div>
+            <div class="site-wrap">
+              <a
+                href="https://www.astroyogisiddhartha.com/"
+                target="_blank"
+                rel="noopener"
+                class="website-item"
+              >
+                <div class="skeleton"></div>
+                <img
+                  data-src="assets/website/yogi.png"
+                  alt="Astro Yogi Siddhartha"
+                />
+              </a>
+              <div class="site-label">
+                Astro Yogi Siddhartha <span>Astrology</span>
               </div>
-            </a>
-            <a href="https://www.snipacademy.co.in/" target="_blank" rel="noopener" class="website-item">
-              <img loading="lazy" src="assets/website/snip.png" alt="Snip Academy">
-              <div class="website-label">
-                <span class="wp-name">Snip Academy</span>
-                <span class="wp-type">Salon</span>
-              </div>
-            </a>
-            <a href="https://www.astroyogisiddhartha.com/" target="_blank" rel="noopener" class="website-item">
-              <img loading="lazy" src="assets/website/yogi.png" alt="Astro Yogi Siddhartha">
-              <div class="website-label">
-                <span class="wp-name">Astro Yogi Siddhartha</span>
-                <span class="wp-type">Astrology</span>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1692,7 +1799,7 @@
         <div class="section-label fade-up">Who We Work With</div>
         <p
           style="
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 300;
             color: var(--stone);
             line-height: 1.85;
@@ -1750,7 +1857,6 @@
         <div class="results-grid fade-up">
           <div class="result-card">
             <div class="result-client">Resin Art Store India</div>
-            <div class="result-scope">Brand strategy · Social · Influencer</div>
             <div class="result-stat">100% Sales</div>
             <p class="result-desc">
               Built an entire e-commerce brand from the ground up. All revenue
@@ -1758,66 +1864,33 @@
               Grew to 15K+ community and 40% revenue growth YoY for three
               consecutive years.
             </p>
-            <div class="result-tag">Founder-built</div>
           </div>
           <div class="result-card">
-            <div class="result-client">Snip Salon & Spa</div>
-            <div class="result-scope">Content production · Social media</div>
+            <div class="result-client">Snip Salon &amp; Spa</div>
             <div class="result-stat">300% Reach</div>
             <p class="result-desc">
               Tripled social engagement and reach for a 25-year-old salon brand.
               Elevated the digital identity to match the premium in-store
               experience — measurable increases in new client bookings followed.
             </p>
-            <div class="result-tag">Engagement + Reach</div>
           </div>
           <div class="result-card">
             <div class="result-client">Kaizen</div>
-            <div class="result-scope">Performance marketing · Local SEO</div>
             <div class="result-stat">+50% Footfall</div>
             <p class="result-desc">
               Increased in-studio and café footfalls by 50% in just 4 months
               through targeted local marketing, social strategy, and content
               that brought the Kaizen experience to life online.
             </p>
-            <div class="result-tag">Footfall Growth</div>
           </div>
           <div class="result-card">
             <div class="result-client">Villa Donna</div>
-            <div class="result-scope">Performance marketing · Hospitality</div>
             <div class="result-stat">+25% Leads</div>
             <p class="result-desc">
               Increased qualified leads by 25% through targeted performance
               marketing. Direct, measurable impact on occupancy — the kind of
               ROI a premium hospitality brand demands.
             </p>
-            <div class="result-tag">Performance</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="section testimonials-bg">
-      <div class="section-inner">
-        <div class="section-label fade-up">Client Reflections</div>
-        <div class="testimonial-grid fade-up">
-          <div class="testimonial">
-            <div class="testimonial-quote">
-              "Add a strong client testimonial here. One genuine quote from a
-              satisfied client will do more for conversion than anything else on
-              this page."
-            </div>
-            <div class="testimonial-author">Client Name</div>
-            <div class="testimonial-co">Business · City</div>
-          </div>
-          <div class="testimonial">
-            <div class="testimonial-quote">
-              "A quote from a fellow legacy business owner. HNI clients respond
-              to peer validation more than any credential or case study."
-            </div>
-            <div class="testimonial-author">Client Name</div>
-            <div class="testimonial-co">Business · City</div>
           </div>
         </div>
       </div>
@@ -1853,42 +1926,42 @@
           <div class="form-wrap">
             <div class="form-grid">
               <div class="form-field">
-                <label class="form-label">Your Name</label>
-                <input
+                <label class="form-label">Your Name</label
+                ><input
                   class="form-input"
                   type="text"
                   id="f-name"
-                  placeholder="Priya Mehta"
+                  placeholder="Full Name"
                   required
                 />
               </div>
               <div class="form-field">
-                <label class="form-label">Business Name</label>
-                <input
+                <label class="form-label">Business Name</label
+                ><input
                   class="form-input"
                   type="text"
                   id="f-business"
-                  placeholder="Your brand"
+                  placeholder="Your Brand"
                   required
                 />
               </div>
               <div class="form-field">
-                <label class="form-label">Email</label>
-                <input
+                <label class="form-label">Email</label
+                ><input
                   class="form-input"
                   type="email"
                   id="f-email"
-                  placeholder="you@yourbrand.com"
+                  placeholder="Enter Your Email"
                   required
                 />
               </div>
               <div class="form-field">
-                <label class="form-label">Phone</label>
-                <input
+                <label class="form-label">Phone</label
+                ><input
                   class="form-input"
                   type="tel"
                   id="f-phone"
-                  placeholder="+91 98765 43210"
+                  placeholder="+91 98XXX XXX"
                 />
               </div>
               <div class="form-field full">
@@ -1908,20 +1981,16 @@
                     Select what fits best
                   </option>
                   <option>Brand strategy from scratch</option>
-                  <option>Website design & development</option>
+                  <option>Website design &amp; development</option>
                   <option>Social media management</option>
-                  <option>Content production & design</option>
+                  <option>Content production &amp; design</option>
                   <option>Performance marketing</option>
                   <option>Full-service partnership</option>
                 </select>
               </div>
               <div class="form-field full">
-                <label class="form-label">Anything Else We Should Know?</label>
-                <textarea
-                  class="form-textarea"
-                  id="f-message"
-                  placeholder="Tell us about your business, your goals, or what's not working right now."
-                ></textarea>
+                <label class="form-label">Anything Else We Should Know?</label
+                ><textarea class="form-textarea" id="f-message"></textarea>
               </div>
             </div>
             <button
@@ -1929,13 +1998,10 @@
               id="form-submit-btn"
               onclick="submitForm()"
             >
-              Submit — let's talk strategy →
+              Let's Talk Strategy →
             </button>
             <div id="form-status" class="form-status"></div>
-            <div class="form-note">
-              We respond within 24 hours. We take on a limited number of clients
-              each quarter.
-            </div>
+            <p class="form-note">We typically respond within 24 hours.</p>
           </div>
         </div>
       </div>
@@ -1945,8 +2011,7 @@
     <footer>
       <div class="footer-inner">
         <div class="footer-top">
-          <!-- Brand col -->
-          <div class="footer-brand">
+          <div>
             <div class="footer-logo">
               <img src="assets/Rara_logo.png" alt="RARA Digital" />
             </div>
@@ -1956,7 +2021,7 @@
             </p>
             <div class="footer-social">
               <a
-                href="https://instagram.com/raradigital"
+                href="https://www.instagram.com/rara.digitalmarketing/"
                 target="_blank"
                 aria-label="Instagram"
               >
@@ -1999,8 +2064,6 @@
               </a>
             </div>
           </div>
-
-          <!-- Navigation col -->
           <div>
             <div class="footer-col-title">Navigation</div>
             <ul class="footer-nav">
@@ -2011,18 +2074,16 @@
               <li><a href="#contact">Schedule a Call</a></li>
             </ul>
           </div>
-
-          <!-- Contact col -->
           <div>
             <div class="footer-col-title">Get in Touch</div>
             <div class="footer-contact-items">
-              <div class="footer-contact-item">
+              <div>
                 <div class="footer-contact-label">Email</div>
                 <a href="mailto:ridhi@raradigital.in" class="footer-contact-val"
                   >ridhi@raradigital.in</a
                 >
               </div>
-              <div class="footer-contact-item">
+              <div>
                 <div class="footer-contact-label">Phone</div>
                 <a href="tel:+919536463555" class="footer-contact-val"
                   >+91 95364 63555</a
@@ -2030,35 +2091,19 @@
               </div>
             </div>
           </div>
-
-          <!-- Locations col -->
           <div>
             <div class="footer-col-title">Locations</div>
             <div class="footer-locations">
-              <div class="footer-location">
-                <div class="footer-location-city">Pune</div>
-                <!-- <div class="footer-location-state">Maharashtra</div> -->
-              </div>
-              <div class="footer-location">
-                <div class="footer-location-city">Mumbai</div>
-                <!-- <div class="footer-location-state">Maharashtra</div> -->
-              </div>
-              <div class="footer-location">
-                <div class="footer-location-city">Goa</div>
-                <!-- <div class="footer-location-state">Goa</div> -->
-              </div>
+              <div><div class="footer-location-city">Pune</div></div>
+              <div><div class="footer-location-city">Mumbai</div></div>
+              <div><div class="footer-location-city">Goa</div></div>
             </div>
           </div>
         </div>
-
         <div class="footer-bottom">
           <div class="footer-copy">
             © 2025 RARA Digital Marketing. All rights reserved.
           </div>
-          <!-- <div class="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-          </div> -->
         </div>
       </div>
     </footer>
@@ -2066,49 +2111,89 @@
     <script>
       // ─── HERO VIDEO ───
       function toggleShowreel() {
-        const video = document.getElementById("showreel");
+        const v = document.getElementById("showreel");
         const btn = document.getElementById("playBtn");
-        if (video.paused) {
+        if (v.paused) {
           btn.classList.add("hidden");
-          video.muted = false;
-          video.play().catch(() => {
-            video.muted = true;
-            video.play();
+          v.muted = false;
+          v.play().catch(() => {
+            v.muted = true;
+            v.play();
           });
         } else {
-          video.pause();
+          v.pause();
           btn.classList.remove("hidden");
         }
       }
 
-      // Load first frame as poster for hero showreel
-      (function () {
-        const v = document.getElementById("showreel");
-        if (v) {
-          v.addEventListener("loadeddata", function () {}, { once: true });
-          // preload="metadata" will load first frame automatically as poster on most browsers
-        }
-      })();
-
-      // ─── CAROUSEL VIDEO LAZY LOAD + TOGGLE ───
-      function loadCarouselVideo(videoEl) {
-        if (videoEl.dataset.loaded) return;
-        const src =
-          videoEl.dataset.src ||
-          videoEl.querySelector("source[data-src]")?.getAttribute("data-src");
-        if (src) {
-          videoEl.src = src;
-          videoEl.load();
-        }
-        videoEl.dataset.loaded = "1";
+      // ─── SKELETON HIDE ───
+      function clearSkeleton(el) {
+        const s = el
+          .closest(".carousel-item, .website-item")
+          ?.querySelector(".skeleton");
+        if (s) s.classList.add("gone");
+        el.classList.add("loaded");
       }
 
-      function toggleCarouselVideo(item) {
-        const video = item.querySelector("video");
-        const btn = item.querySelector(".reel-play-btn");
-        if (!video) return;
+      // ─── LAZY LOAD IMAGES ───
+      const imgIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const img = e.target.querySelector("img[data-src]");
+            if (img) {
+              img.src = img.dataset.src;
+              img.removeAttribute("data-src");
+              img.onload = () => clearSkeleton(img);
+              img.onerror = () => clearSkeleton(img);
+            }
+            imgIO.unobserve(e.target);
+          });
+        },
+        { rootMargin: "300px" },
+      );
 
-        // Stop all other playing carousel videos first
+      document
+        .querySelectorAll(".carousel-item, .website-item")
+        .forEach((el) => {
+          if (el.querySelector("img[data-src]")) imgIO.observe(el);
+        });
+
+      // ─── LAZY LOAD VIDEO METADATA ───
+      const vidIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const v = e.target.querySelector("video");
+            if (v && !v.dataset.loaded) {
+              const src =
+                v.dataset.src ||
+                v.querySelector("source[data-src]")?.getAttribute("data-src");
+              if (src) {
+                v.src = src;
+                v.preload = "metadata";
+                v.load();
+                v.addEventListener("loadeddata", () => clearSkeleton(v), {
+                  once: true,
+                });
+                v.dataset.loaded = "1";
+              }
+            }
+            vidIO.unobserve(e.target);
+          });
+        },
+        { rootMargin: "400px" },
+      );
+
+      document.querySelectorAll(".carousel-item").forEach((el) => {
+        if (el.querySelector("video")) vidIO.observe(el);
+      });
+
+      // ─── VIDEO TOGGLE ───
+      function toggleCarouselVideo(item) {
+        const v = item.querySelector("video");
+        const btn = item.querySelector(".reel-play-btn");
+        if (!v) return;
         document.querySelectorAll(".carousel-item.playing").forEach((el) => {
           if (el !== item) {
             el.classList.remove("playing");
@@ -2117,101 +2202,76 @@
             if (b) b.style.display = "flex";
           }
         });
-
         if (item.classList.contains("playing")) {
           item.classList.remove("playing");
-          video.pause();
+          v.pause();
           btn.style.display = "flex";
         } else {
-          loadCarouselVideo(video);
+          // Ensure loaded
+          if (!v.dataset.loaded) {
+            const src =
+              v.dataset.src ||
+              v.querySelector("source[data-src]")?.getAttribute("data-src");
+            if (src) {
+              v.src = src;
+              v.load();
+              v.dataset.loaded = "1";
+            }
+          }
           item.classList.add("playing");
           btn.style.display = "none";
-          video.muted = false;
-          video.play();
+          v.muted = false;
+          v.play();
         }
       }
 
-      // Lazy-load carousel videos when they enter viewport
-      const videoObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const video = entry.target.querySelector("video");
-              if (video && !video.dataset.loaded) {
-                // Just load metadata so first frame shows, don't autoplay
-                const src =
-                  video.dataset.src ||
-                  video
-                    .querySelector("source[data-src]")
-                    ?.getAttribute("data-src");
-                if (src) {
-                  video.src = src;
-                  video.preload = "metadata";
-                  video.load();
-                  video.dataset.loaded = "1";
-                }
-              }
-            }
-          });
-        },
-        { rootMargin: "200px" },
-      );
-
-      document.querySelectorAll(".carousel-item").forEach((item) => {
-        if (item.querySelector("video")) videoObserver.observe(item);
-      });
-
-      // ─── FADE-UP OBSERVER ───
-      const fadeObserver = new IntersectionObserver(
+      // ─── FADE UP ───
+      const fadeIO = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
               e.target.classList.add("visible");
-              fadeObserver.unobserve(e.target);
+              fadeIO.unobserve(e.target);
             }
           });
         },
         { threshold: 0.12 },
       );
-      document
-        .querySelectorAll(".fade-up")
-        .forEach((el) => fadeObserver.observe(el));
+      document.querySelectorAll(".fade-up").forEach((el) => fadeIO.observe(el));
 
-      // ─── DRAG-TO-SCROLL CAROUSELS ───
-      document.querySelectorAll(".carousel").forEach((carousel) => {
-        let isDown = false,
-          startX,
-          scrollLeft;
-        carousel.addEventListener("mousedown", (e) => {
-          isDown = true;
-          startX = e.pageX - carousel.offsetLeft;
-          scrollLeft = carousel.scrollLeft;
+      // ─── DRAG SCROLL ───
+      document.querySelectorAll(".carousel").forEach((c) => {
+        let down = false,
+          sx,
+          sl;
+        c.addEventListener("mousedown", (e) => {
+          down = true;
+          sx = e.pageX - c.offsetLeft;
+          sl = c.scrollLeft;
         });
-        carousel.addEventListener("mouseleave", () => (isDown = false));
-        carousel.addEventListener("mouseup", () => (isDown = false));
-        carousel.addEventListener("mousemove", (e) => {
-          if (!isDown) return;
+        c.addEventListener("mouseleave", () => (down = false));
+        c.addEventListener("mouseup", () => (down = false));
+        c.addEventListener("mousemove", (e) => {
+          if (!down) return;
           e.preventDefault();
-          const x = e.pageX - carousel.offsetLeft;
-          carousel.scrollLeft = scrollLeft - (x - startX) * 1.2;
+          c.scrollLeft = sl - (e.pageX - c.offsetLeft - sx) * 1.2;
         });
-        let touchStartX, touchScrollLeft;
-        carousel.addEventListener("touchstart", (e) => {
-          touchStartX = e.touches[0].pageX;
-          touchScrollLeft = carousel.scrollLeft;
+        let tx, tsl;
+        c.addEventListener("touchstart", (e) => {
+          tx = e.touches[0].pageX;
+          tsl = c.scrollLeft;
         });
-        carousel.addEventListener("touchmove", (e) => {
-          carousel.scrollLeft =
-            touchScrollLeft + (touchStartX - e.touches[0].pageX);
+        c.addEventListener("touchmove", (e) => {
+          c.scrollLeft = tsl + (tx - e.touches[0].pageX);
         });
       });
 
       // ─── MOBILE MENU ───
       function toggleMenu(btn) {
         const links = document.querySelector(".nav-links");
-        const isOpen = links.style.display === "flex";
-        links.style.display = isOpen ? "none" : "flex";
-        if (!isOpen) {
+        const open = links.style.display === "flex";
+        links.style.display = open ? "none" : "flex";
+        if (!open)
           Object.assign(links.style, {
             flexDirection: "column",
             position: "absolute",
@@ -2225,14 +2285,12 @@
             gap: "1.25rem",
             zIndex: "99",
           });
-        }
       }
 
-      // ─── CONTACT FORM ───
+      // ─── FORM — EMAILJS ───
       async function submitForm() {
         const btn = document.getElementById("form-submit-btn");
         const status = document.getElementById("form-status");
-
         const name = document.getElementById("f-name").value.trim();
         const business = document.getElementById("f-business").value.trim();
         const email = document.getElementById("f-email").value.trim();
@@ -2241,15 +2299,13 @@
         const service = document.getElementById("f-service").value;
         const message = document.getElementById("f-message").value.trim();
 
-        // Basic validation
         if (!name || !business || !email) {
           status.className = "form-status error";
           status.textContent =
             "Please fill in your name, business name, and email.";
           return;
         }
-        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRe.test(email)) {
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           status.className = "form-status error";
           status.textContent = "Please enter a valid email address.";
           return;
@@ -2259,58 +2315,36 @@
         btn.textContent = "Sending…";
         status.className = "form-status";
 
-        // Send via Formspree (replace YOUR_FORM_ID with actual Formspree endpoint)
-        // To use: sign up at formspree.io, create a form, and replace the URL below
-        const FORMSPREE_URL = "https://formspree.io/f/YOUR_FORM_ID";
-
         try {
-          const res = await fetch(FORMSPREE_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              name,
+          await emailjs.send(
+            "YOUR_SERVICE_ID", // ← Step 3: paste your Service ID here
+            "YOUR_TEMPLATE_ID", // ← Step 4: paste your Template ID here
+            {
+              from_name: name,
               business,
-              email,
-              phone,
-              time,
-              service,
-              message,
-            }),
-          });
-
-          if (res.ok) {
-            status.className = "form-status success";
-            status.textContent =
-              "✓ Thank you! We'll be in touch within 24 hours.";
-            btn.textContent = "Sent ✓";
-            // Clear fields
-            ["f-name", "f-business", "f-email", "f-phone", "f-message"].forEach(
-              (id) => {
-                document.getElementById(id).value = "";
-              },
-            );
-            document.getElementById("f-time").selectedIndex = 0;
-            document.getElementById("f-service").selectedIndex = 0;
-          } else {
-            throw new Error("Server error");
-          }
+              reply_to: email,
+              phone: phone || "Not provided",
+              best_time: time || "Not specified",
+              service_interest: service || "Not specified",
+              message: message || "—",
+            },
+          );
+          status.className = "form-status success";
+          status.textContent =
+            "✓ Thank you! We'll be in touch within 24 hours.";
+          btn.textContent = "Sent ✓";
+          ["f-name", "f-business", "f-email", "f-phone", "f-message"].forEach(
+            (id) => (document.getElementById(id).value = ""),
+          );
+          document.getElementById("f-time").selectedIndex = 0;
+          document.getElementById("f-service").selectedIndex = 0;
         } catch (err) {
-          // Fallback: open mailto
-          const subject = encodeURIComponent(
-            `New enquiry from ${name} — ${business}`,
-          );
-          const body = encodeURIComponent(
-            `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nPhone: ${phone}\nBest time: ${time}\nLooking for: ${service}\n\n${message}`,
-          );
-          window.location.href = `mailto:ridhi@raradigital.in?subject=${subject}&body=${body}`;
+          console.error("EmailJS error:", err);
           status.className = "form-status error";
           status.textContent =
-            "Direct send unavailable — opening your mail app instead.";
+            "Couldn't send right now — please email ridhi@raradigital.in directly.";
           btn.disabled = false;
-          btn.textContent = "Submit — let's talk strategy →";
+          btn.textContent = "Let's Talk Strategy →";
         }
       }
     </script>
