@@ -500,8 +500,7 @@
         display: flex;
         gap: 14px;
         overflow-x: auto;
-        /* scroll-snap-type: x mandatory; */
-        scroll-snap-type: none;
+        scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
         padding-bottom: 8px;
         cursor: grab;
@@ -528,8 +527,7 @@
         flex-direction: column;
         gap: 8px;
         flex-shrink: 0;
-        /* scroll-snap-align: start; */
-         scroll-snap-align: none;
+        scroll-snap-align: start;
       }
       .media-wrap.v {
         width: 200px;
@@ -1842,6 +1840,105 @@
                     >
                       <source
                         data-src="assets/socialmedia/11.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/13.mp4"
+                      poster="assets/thumbnails/1.jpg"
+                    >
+                      <source
+                        data-src="assets/socialmedia/13.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/14.mp4"
+                      poster="assets/thumbnails/13.webp"
+                    >
+                      <source
+                        data-src="assets/socialmedia/14.mp4"
+                        type="video/mp4"
+                      />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                        >
+                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="media-wrap v">
+                  <div
+                    class="carousel-item v"
+                    onclick="toggleCarouselVideo(this)"
+                  >
+                    <div class="skeleton"></div>
+                    <video
+                      preload="none"
+                      playsinline
+                      loop
+                      muted
+                      data-src="assets/socialmedia/15.mp4"
+                      poster="assets/thumbnails/14.webp"
+                    >
+                      <source
+                        data-src="assets/socialmedia/15.mp4"
                         type="video/mp4"
                       />
                     </video>
