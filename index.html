@@ -820,11 +820,13 @@
         flex-direction: column;
         gap: 12px;
       }
-      .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 12px;
+
+      @media (max-width: 480px) {
+        .contact-items {
+          display: none;
+        }
       }
+
       .contact-dot {
         width: 6px;
         height: 6px;
@@ -2787,6 +2789,14 @@ document.querySelectorAll('.carousel-item').forEach((item) => {
           e.preventDefault();
           c.scrollLeft = sl - (e.pageX - c.offsetLeft - sx) * 1.2;
         });
+        /* let tx, tsl;
+        c.addEventListener("touchstart", (e) => {
+          tx = e.touches[0].pageX;
+          tsl = c.scrollLeft;
+        });
+        c.addEventListener("touchmove", (e) => {
+          c.scrollLeft = tsl + (tx - e.touches[0].pageX);
+        }); */
       });
 
       // ─── MOBILE MENU ───
