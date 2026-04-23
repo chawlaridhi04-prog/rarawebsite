@@ -1279,6 +1279,27 @@
         color: var(--stone);
         letter-spacing: 0.02em;
       }
+      @media (max-width: 900px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reflections-sub {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .reflections-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .reflections-heading {
+    font-size: 28px;
+  }
+}
 
       .carousel-item.yt {
         aspect-ratio: 16/9;
