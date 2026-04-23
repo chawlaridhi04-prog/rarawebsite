@@ -15,7 +15,7 @@
     ></script>
     <script type="text/javascript">
       (function () {
-        emailjs.init({ publicKey: "YOUR_EMAILJS_PUBLIC_KEY" });
+        emailjs.init({ publicKey: "VJdBgz4uwOjpv-Oni" });
       })();
     </script>
     <style>
@@ -1177,6 +1177,109 @@
           width: 220px;
         }
       }
+
+            /* ─── CLIENT REFLECTIONS ─── */
+      .reflections-section {
+        background: var(--white);
+        padding: 7rem 5vw;
+      }
+      .reflections-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .reflections-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 3.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .reflections-heading {
+        font-family: var(--serif);
+        font-size: 42px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.15;
+      }
+      .reflections-sub {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--stone);
+        max-width: 320px;
+        text-align: right;
+        line-height: 1.7;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .testimonial-card {
+        background: var(--mist);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 2.25rem 2rem;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.25s, transform 0.25s;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 48px rgba(57, 10, 71, 0.09);
+      }
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--purple-light), transparent);
+      }
+      .testimonial-quote-mark {
+        font-family: var(--serif);
+        font-size: 72px;
+        line-height: 0.6;
+        color: var(--gold);
+        opacity: 0.3;
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+        display: block;
+        user-select: none;
+      }
+      .testimonial-text {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--ink-soft);
+        line-height: 1.85;
+        flex: 1;
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 1.25rem;
+        border-top: 0.5px solid var(--border-mid);
+      }
+
+      .testimonial-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+      .testimonial-role {
+        font-size: 12px;
+        font-weight: 300;
+        color: var(--stone);
+        letter-spacing: 0.02em;
+      }
+
     </style>
   </head>
   <body>
@@ -1694,6 +1797,73 @@
           </div>
         </div>
 
+                <!-- PRODUCTION -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Production</div>
+          <div class="carousel">
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <!-- Replace with video if needed: <video preload="none" playsinline loop muted data-src="assets/production/1.mp4" poster="assets/production/thumbs/1.jpg">...</video> -->
+                <img data-src="assets/production/1.jpeg" alt="Production 1" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/2.jpeg" alt="Production 2" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/3.jpeg" alt="Production 3" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/4.jpeg" alt="Production 4" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/5.jpeg" alt="Production 5" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/6.jpeg" alt="Production 6" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <!-- Add up to 2 more production items if needed -->
+            <!-- 
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/7.webp" alt="Production 7" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/8.webp" alt="Production 8" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            -->
+          </div>
+        </div>
+
         <!-- DESIGN — 6 images -->
         <div class="work-block fade-up">
           <div class="work-block-label">Design</div>
@@ -1892,6 +2062,64 @@
               ROI a premium hospitality brand demands.
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT REFLECTIONS -->
+    <section class="reflections-section" id="reflections">
+      <div class="reflections-inner">
+        <div class="reflections-header fade-up">
+          <div>
+            <div class="section-label" style="margin-bottom: 0.75rem;">Client Reflections</div>
+            <h2 class="reflections-heading">Words from the people<br>we've built with</h2>
+          </div>
+          <p class="reflections-sub">Real partnerships. Real outcomes. In their own words.</p>
+        </div>
+        <div class="testimonials-grid fade-up">
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">
+              RARA is a powerhouse for fast-turnaround, high-quality digital content. Whether it was a last-minute campaign for a tropical ad launch or a long-term strategy for our 25th-Anniversary event, they pivoted effortlessly between projects. They have an incredible eye for detail and a knack for making even the most technical information feel approachable. Having worked with them for over a year now, they have become an indispensable part of SNIP's digital growth.
+            </p>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-name">Archana Bhobe</div>
+                <div class="testimonial-role">CEO, Snip Salons &amp; Spas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">
+              Rara brought a level of strategic depth we haven't found elsewhere. From developing a viral digital strategy for our digital launch to managing our community engagement, their approach is always expert-driven and results-oriented. They acted as a true brand custodian, ensuring every piece of content was consistent with our long-term vision.
+            </p>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-name">Sheetal Chauhan</div>
+                <div class="testimonial-role">Founder, Dhaval Arts</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">
+              We brought RARA on for VERY'S production and web development, and what stood out most was how quickly everything clicked — they got the brief immediately without us having to go back and forth multiple times. Their marketing and positioning strategy was a total win; the brand deck they built was spot on and gave us exactly what we needed to secure some incredible collaborations for our Dia de Women event.
+            </p>
+            <div class="testimonial-author">
+              <div>
+                <div class="testimonial-name">Khushi Dawda</div>
+                <div class="testimonial-role">Founder, VERY</div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -2317,8 +2545,8 @@
 
         try {
           await emailjs.send(
-            "YOUR_SERVICE_ID", // ← Step 3: paste your Service ID here
-            "YOUR_TEMPLATE_ID", // ← Step 4: paste your Template ID here
+            "service_y0bovod", // ← Step 3: paste your Service ID here
+            "template_qf4elrh", // ← Step 4: paste your Template ID here
             {
               from_name: name,
               business,

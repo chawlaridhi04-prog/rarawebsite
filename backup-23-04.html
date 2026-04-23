@@ -1,0 +1,2337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RARA Digital — Build Digital Authority</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({ publicKey: "VJdBgz4uwOjpv-Oni" });
+      })();
+    </script>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --gold: #b8965a;
+        --gold-light: #d4af7a;
+        --gold-pale: #f5edd8;
+        --purple-deep: #390a47;
+        --purple-mid: #4a2c7a;
+        --purple-light: #7b5ea7;
+        --ink: #0f0a18;
+        --ink-soft: #2d2038;
+        --mist: #f7f4ef;
+        --mist-mid: #ede8df;
+        --stone: #7a6f85;
+        --stone-light: #b0a8b8;
+        --white: #ffffff;
+        --border: rgba(184, 150, 90, 0.15);
+        --border-mid: rgba(184, 150, 90, 0.28);
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Outfit", system-ui, sans-serif;
+        --nav-h: 72px;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--mist);
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+        font-size: 16px;
+      }
+
+      /* ─── NAV ─── */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        height: var(--nav-h);
+        display: flex;
+        align-items: center;
+        background: rgba(247, 244, 239, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 0.5px solid var(--border);
+        padding: 0 5vw;
+      }
+      .nav-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .logo img {
+        height: 64px;
+        width: auto;
+        display: block;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+      .nav-link {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--stone);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: var(--ink);
+      }
+      .nav-cta {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--white);
+        background: var(--purple-deep);
+        border: none;
+        border-radius: 20px;
+        padding: 9px 22px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .nav-cta:hover {
+        background: var(--purple-mid);
+      }
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 22px;
+        height: 1.5px;
+        background: var(--ink);
+        transition: all 0.3s;
+      }
+
+      /* ─── HERO ─── */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: calc(var(--nav-h) + 4rem) 5vw 5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 50% at 70% 40%,
+          rgba(74, 44, 122, 0.07) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+        align-items: center;
+      }
+      .hero-h {
+        font-family: var(--serif);
+        font-size: 52px;
+        font-weight: 500;
+        line-height: 1.1;
+        color: var(--ink);
+        margin-bottom: 1.75rem;
+      }
+      .hero-h em {
+        font-style: italic;
+        color: var(--purple-mid);
+      }
+      .hero-sub {
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 1.8;
+        color: var(--stone);
+        max-width: 440px;
+        margin-bottom: 2.5rem;
+      }
+      .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        background: var(--purple-deep);
+        border: none;
+        border-radius: 20px;
+        padding: 14px 32px;
+        cursor: pointer;
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .hero-btn:hover {
+        background: var(--purple-mid);
+        transform: translateY(-1px);
+      }
+      .hero-btn svg {
+        transition: transform 0.2s;
+      }
+      .hero-btn:hover svg {
+        transform: translateX(3px);
+      }
+      .hero-right {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .video-frame {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 9/16;
+        max-height: 560px;
+        background: var(--ink);
+        box-shadow:
+          0 40px 80px rgba(45, 22, 84, 0.2),
+          0 0 0 0.5px var(--border-mid);
+      }
+      .video-frame video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: #0f0a18;
+        display: block;
+      }
+      .video-play-btn {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(15, 10, 24, 0.3);
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .video-play-btn:hover {
+        background: rgba(15, 10, 24, 0.1);
+      }
+      .video-play-btn.hidden {
+        display: none;
+      }
+      .play-circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s;
+      }
+      .video-play-btn:hover .play-circle {
+        transform: scale(1.08);
+      }
+      .play-circle svg {
+        margin-left: 3px;
+      }
+
+      /* ─── PROOF BAR ─── */
+      .proof-bar {
+        background: linear-gradient(
+          135deg,
+          var(--purple-deep) 70%,
+          var(--gold) 100%
+        );
+        padding: 2.5rem 5vw;
+      }
+      .proof-bar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+      }
+      .proof-item {
+        text-align: center;
+        padding: 0 1.5rem;
+        border-right: 0.5px solid rgba(255, 255, 255, 0.1);
+      }
+      .proof-item:last-child {
+        border-right: none;
+      }
+      .proof-num {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 600;
+        color: var(--gold-light);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .proof-label {
+        font-size: 13px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.55);
+        line-height: 1.5;
+      }
+
+      /* ─── SECTION ─── */
+      .section {
+        padding: 7rem 5vw;
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .section-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      /* ─── BELIEF ─── */
+      .belief {
+        background: var(--white);
+      }
+      .belief-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+      }
+      .belief-quote {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 500;
+        font-style: italic;
+        color: var(--ink);
+        line-height: 1.3;
+        margin-bottom: 1.5rem;
+      }
+      .belief-body {
+        font-size: 16px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.9;
+      }
+      .services-heading {
+        font-family: var(--serif);
+        font-size: 22px;
+        font-weight: 500;
+        color: var(--ink);
+        margin-bottom: 1.5rem;
+      }
+      .services-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+      }
+      .service-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 1.25rem;
+        background: var(--mist);
+        border-radius: 6px;
+        transition: all 0.2s;
+        text-decoration: none;
+        border: 0.5px solid transparent;
+      }
+      .service-item:hover {
+        background: var(--gold-pale);
+        border-color: var(--border-mid);
+      }
+      .svc-name {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+      .svc-arrow {
+        color: var(--gold);
+        font-size: 16px;
+        transition: transform 0.2s;
+      }
+      .service-item:hover .svc-arrow {
+        transform: translateX(4px);
+      }
+
+      /* ─── RESULTS ─── */
+      .results-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--border);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 2.5rem;
+      }
+      .result-card {
+        padding: 2rem;
+        background: var(--white);
+        transition: background 0.15s;
+      }
+      .result-card:hover {
+        background: var(--mist);
+      }
+      .result-client {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 3px;
+      }
+      .result-stat {
+        font-family: var(--serif);
+        font-size: 40px;
+        font-weight: 600;
+        color: var(--purple-deep);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .result-desc {
+        font-size: 14px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.75;
+      }
+
+      /* ─── CLIENT REFLECTIONS ─── */
+      .reflections-section {
+        background: var(--white);
+        padding: 7rem 5vw;
+      }
+      .reflections-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .reflections-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 3.5rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .reflections-heading {
+        font-family: var(--serif);
+        font-size: 42px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.15;
+      }
+      .reflections-sub {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--stone);
+        max-width: 320px;
+        text-align: right;
+        line-height: 1.7;
+      }
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .testimonial-card {
+        background: var(--mist);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 2.25rem 2rem;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: box-shadow 0.25s, transform 0.25s;
+      }
+      .testimonial-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 48px rgba(57, 10, 71, 0.09);
+      }
+      .testimonial-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), var(--purple-light), transparent);
+      }
+      .testimonial-quote-mark {
+        font-family: var(--serif);
+        font-size: 72px;
+        line-height: 0.6;
+        color: var(--gold);
+        opacity: 0.3;
+        margin-bottom: 1.25rem;
+        font-weight: 600;
+        display: block;
+        user-select: none;
+      }
+      .testimonial-text {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--ink-soft);
+        line-height: 1.85;
+        flex: 1;
+        margin-bottom: 2rem;
+        font-style: italic;
+      }
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding-top: 1.25rem;
+        border-top: 0.5px solid var(--border-mid);
+      }
+      .testimonial-avatar {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--purple-deep), var(--gold));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--white);
+        flex-shrink: 0;
+        letter-spacing: 0.02em;
+      }
+      .testimonial-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+      .testimonial-role {
+        font-size: 12px;
+        font-weight: 300;
+        color: var(--stone);
+        letter-spacing: 0.02em;
+      }
+
+      /* ─── OUR WORK ─── */
+      .work-section {
+        background: var(--ink);
+        padding: 7rem 5vw;
+      }
+      .work-section .section-label {
+        color: var(--gold);
+      }
+      .work-heading {
+        font-family: var(--serif);
+        font-size: 42px;
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 0.5rem;
+      }
+      .work-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.45);
+        margin-bottom: 4rem;
+      }
+      .work-block {
+        margin-bottom: 4rem;
+      }
+      .work-block:last-child {
+        margin-bottom: 0;
+      }
+      .work-block-label {
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gold-light);
+        margin-bottom: 1.25rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* ─── SOCIAL TWO-ROW ─── */
+      .social-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .social-row-label {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        margin-bottom: 10px;
+      }
+
+      /* ─── CAROUSEL ─── */
+      .carousel {
+        display: flex;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        padding-bottom: 8px;
+        cursor: grab;
+        user-select: none;
+      }
+      .carousel:active {
+        cursor: grabbing;
+      }
+      .carousel::-webkit-scrollbar {
+        height: 3px;
+      }
+      .carousel::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 2px;
+      }
+      .carousel::-webkit-scrollbar-thumb {
+        background: rgba(184, 150, 90, 0.4);
+        border-radius: 2px;
+      }
+
+      /* wrapper that holds item + label */
+      .media-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+      }
+      .media-wrap.v {
+        width: 200px;
+      }
+      .media-wrap.h {
+        width: 360px;
+      }
+      .media-wrap.d {
+        width: 280px;
+      }
+
+      /* the clickable media box */
+      .carousel-item {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--ink-soft);
+        width: 100%;
+      }
+      .carousel-item.v {
+        aspect-ratio: 9/16;
+      }
+      .carousel-item.h {
+        aspect-ratio: 16/9;
+      }
+      .carousel-item.d {
+        aspect-ratio: 3/4;
+      }
+
+      .carousel-item img,
+      .carousel-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.4s,
+          opacity 0.5s;
+        opacity: 0;
+      }
+      .carousel-item img.loaded,
+      .carousel-item video.loaded {
+        opacity: 1;
+      }
+      .carousel-item:hover img,
+      .carousel-item:hover video {
+        transform: scale(1.03);
+      }
+
+      /* brand label */
+      .media-label {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.6);
+        padding: 0 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .media-label strong {
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+      }
+      .media-label span {
+        font-size: 10px;
+        font-weight: 300;
+        color: rgba(184, 150, 90, 0.7);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-left: 6px;
+      }
+
+      /* skeleton shimmer */
+      .skeleton {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          #1a1025 25%,
+          #2d1654 50%,
+          #1a1025 75%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+        z-index: 1;
+        transition: opacity 0.4s;
+      }
+      .skeleton.gone {
+        opacity: 0;
+        pointer-events: none;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* play overlay */
+      .reel-play-btn {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(15, 10, 24, 0.25);
+        cursor: pointer;
+        transition: background 0.2s;
+        pointer-events: none;
+      }
+      .carousel-item.playing .reel-play-btn {
+        display: none;
+      }
+      .reel-play-circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .reel-play-circle svg {
+        margin-left: 2px;
+      }
+
+      /* ─── WEBSITE GRID ─── */
+      .website-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      .site-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .website-item {
+        aspect-ratio: 16/10;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        display: block;
+        text-decoration: none;
+      }
+      .website-item::after {
+        content: "↗";
+        position: absolute;
+        top: 10px;
+        right: 12px;
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.4);
+        transition: color 0.2s;
+      }
+      .website-item:hover::after {
+        color: var(--gold-light);
+      }
+      .website-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition:
+          transform 0.4s,
+          opacity 0.5s;
+        opacity: 0;
+      }
+      .website-item img.loaded {
+        opacity: 1;
+      }
+      .website-item:hover img {
+        transform: scale(1.04);
+      }
+      .site-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.75);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .site-label span {
+        font-size: 10px;
+        font-weight: 300;
+        color: rgba(184, 150, 90, 0.7);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      /* ─── WHO WE WORK WITH ─── */
+      .ideal-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem;
+        margin-top: 2.5rem;
+      }
+      .ideal-card {
+        background: var(--white);
+        border: 0.5px solid var(--border);
+        border-radius: 10px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .ideal-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+      }
+      .ideal-icon {
+        font-size: 22px;
+        margin-bottom: 1rem;
+      }
+      .ideal-head {
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 1.25rem;
+      }
+      .ideal-item {
+        font-size: 15px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.6;
+        padding: 8px 0;
+        border-bottom: 0.5px solid var(--border);
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .ideal-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .ideal-item::before {
+        content: "—";
+        color: var(--gold);
+        font-size: 12px;
+        margin-top: 1px;
+        flex-shrink: 0;
+      }
+      .sameline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* ─── FORM ─── */
+      .cta-section {
+        padding: 7rem 5vw;
+      }
+      .cta-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: start;
+      }
+      .cta-headline {
+        font-family: var(--serif);
+        font-size: 44px;
+        font-weight: 500;
+        color: var(--ink);
+        line-height: 1.15;
+        margin-bottom: 1rem;
+      }
+      .cta-headline em {
+        color: var(--purple-mid);
+        font-style: italic;
+      }
+      .cta-sub {
+        font-size: 16px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.8;
+        margin-bottom: 2.5rem;
+      }
+      .contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .contact-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        flex-shrink: 0;
+      }
+      .contact-val {
+        font-size: 15px;
+        color: var(--ink-soft);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .contact-val:hover {
+        color: var(--purple-mid);
+      }
+      .form-wrap {
+        background: var(--white);
+        border: 0.5px solid var(--border);
+        border-radius: 12px;
+        padding: 2.5rem;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+      .form-field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-field.full {
+        grid-column: 1/-1;
+      }
+      .form-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--stone);
+      }
+      .form-input,
+      .form-select,
+      .form-textarea {
+        font-family: var(--sans);
+        font-size: 15px;
+        color: var(--ink);
+        background: var(--mist);
+        border: 0.5px solid var(--border-mid);
+        border-radius: 8px;
+        padding: 11px 14px;
+        outline: none;
+        transition: border-color 0.2s;
+        width: 100%;
+      }
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        border-color: var(--gold);
+        background: var(--white);
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .form-select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A7F8D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+      }
+      .form-submit {
+        width: 100%;
+        font-family: var(--sans);
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        color: var(--white);
+        background: var(--purple-deep);
+        border: none;
+        border-radius: 20px;
+        padding: 15px 28px;
+        cursor: pointer;
+        margin-top: 1.25rem;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .form-submit:hover {
+        background: var(--purple-mid);
+        transform: translateY(-1px);
+      }
+      .form-submit:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .form-note {
+        font-size: 12px;
+        color: var(--stone-light);
+        margin-top: 0.75rem;
+        text-align: center;
+        line-height: 1.6;
+      }
+      .form-status {
+        display: none;
+        padding: 14px 18px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 400;
+        margin-top: 1rem;
+        text-align: center;
+      }
+      .form-status.success {
+        display: block;
+        background: #f0faf4;
+        color: #2e7d50;
+        border: 0.5px solid #a8d5b5;
+      }
+      .form-status.error {
+        display: block;
+        background: #fdf3f3;
+        color: #c0392b;
+        border: 0.5px solid #f1a8a8;
+      }
+
+      /* ─── FOOTER ─── */
+      footer {
+        background: var(--purple-deep);
+        border-top: 0.5px solid rgba(255, 255, 255, 0.06);
+        padding: 5rem 5vw 2.5rem;
+      }
+      .footer-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 4rem;
+        padding-bottom: 4rem;
+        border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.25rem;
+      }
+      .footer-logo img {
+        height: 56px;
+        width: auto;
+      }
+      .footer-tagline {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.45);
+        line-height: 1.8;
+        max-width: 280px;
+        margin-bottom: 1.75rem;
+      }
+      .footer-social {
+        display: flex;
+        gap: 12px;
+      }
+      .footer-social a {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 0.5px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 13px;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .footer-social a:hover {
+        border-color: var(--gold);
+        color: var(--gold-light);
+      }
+      .footer-col-title {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+      .footer-nav {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+      .footer-nav li a {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-nav li a:hover {
+        color: var(--white);
+      }
+      .footer-contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .footer-contact-label {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.25);
+        margin-bottom: 3px;
+      }
+      .footer-contact-val {
+        font-size: 14px;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.6);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .footer-contact-val:hover {
+        color: var(--gold-light);
+      }
+      .footer-locations {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .footer-location-city {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 2px;
+      }
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .footer-copy {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* ─── FADE UP ─── */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ─── MOBILE ─── */
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .hero-left {
+          order: 1;
+        }
+        .hero-right {
+          order: 2;
+          max-width: 300px;
+          margin: 0 auto;
+        }
+        .video-frame {
+          max-height: 400px;
+        }
+        .belief-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .cta-inner {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+        .website-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .reflections-sub {
+          text-align: left;
+        }
+      }
+      @media (max-width: 640px) {
+        .hero-h {
+          font-size: 36px;
+        }
+        .cta-headline {
+          font-size: 32px;
+        }
+        .proof-bar-inner {
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem 0;
+        }
+        .proof-item {
+          border-right: none;
+          border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+          padding: 1rem 0;
+        }
+        .proof-item:nth-child(odd) {
+          border-right: 0.5px solid rgba(255, 255, 255, 0.08);
+        }
+        .results-grid,
+        .ideal-grid,
+        .testimonial-grid,
+        .form-grid,
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+        .website-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 2.5rem;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.75rem;
+        }
+        .media-wrap.v {
+          width: 160px;
+        }
+        .media-wrap.h {
+          width: 280px;
+        }
+        .media-wrap.d {
+          width: 220px;
+        }
+        .reflections-heading {
+          font-size: 32px;
+        }
+        .reflections-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .reflections-sub {
+          text-align: left;
+          max-width: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="#" class="logo"
+          ><img src="assets/Rara_logo.png" alt="RARA Digital"
+        /></a>
+        <div class="nav-links">
+          <a href="#work" class="nav-link">Work</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#results" class="nav-link">Results</a>
+          <a href="#contact" class="nav-cta">Schedule A Call</a>
+        </div>
+        <div class="nav-hamburger" onclick="toggleMenu(this)">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-left fade-up">
+          <h1 class="hero-h">
+            Your business has earned its reputation. Now let the
+            <em>right people</em> find it.
+          </h1>
+          <p class="hero-sub">
+            RARA works with a select group of established businesses ready to
+            build a digital presence that matches their real-world standing.
+          </p>
+          <a href="#contact" class="hero-btn"
+            >Schedule a Strategy Call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+        </div>
+        <div class="hero-right fade-up" style="transition-delay: 0.15s">
+          <div class="video-frame" onclick="toggleShowreel()">
+            <video
+              id="showreel"
+              preload="metadata"
+              playsinline
+              poster="assets/Poster.png"
+            >
+              <source src="assets/showreel.mp4" type="video/mp4" />
+            </video>
+            <div class="video-play-btn" id="playBtn">
+              <div class="play-circle">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                  <path d="M7 4.5L17 11L7 17.5V4.5Z" fill="white" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER NOTE -->
+    <div
+      style="
+        background: var(--purple-deep);
+        padding: 3rem 5vw;
+        border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+      "
+    >
+      <div
+        style="
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          gap: 2rem;
+          align-items: flex-start;
+        "
+      >
+        <div
+          style="
+            flex-shrink: 0;
+            width: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+            align-self: stretch;
+            min-height: 80px;
+          "
+        ></div>
+        <div>
+          <div
+            style="
+              font-size: 11px;
+              font-weight: 500;
+              letter-spacing: 0.2em;
+              text-transform: uppercase;
+              color: var(--gold);
+              margin-bottom: 1rem;
+            "
+          >
+            A Note from the Founder
+          </div>
+          <blockquote
+            style="
+              font-size: 20px;
+              font-weight: 300;
+              color: rgba(255, 255, 255, 0.88);
+              line-height: 1.75;
+              margin: 0 0 1.25rem;
+            "
+          >
+            "We don't chase trends; we build digital assets that reflect your
+            real-world reputation. Having led campaigns for India's largest
+            brands and built my own online business to 100% digital sales, I
+            understand that every rupee must drive ROI. Let's talk about how we
+            can scale yours."
+          </blockquote>
+          <div
+            style="
+              font-size: 14px;
+              font-weight: 500;
+              color: var(--gold-light);
+              letter-spacing: 0.04em;
+            "
+          >
+            — Ridhi Chawla
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BELIEF + SERVICES -->
+    <section class="section belief" id="services">
+      <div class="belief-inner">
+        <div class="belief-left fade-up">
+          <div class="section-label">Our Belief</div>
+          <div class="belief-quote">
+            Being seen isn't enough. Your brand needs to be chosen.
+          </div>
+          <p class="belief-body">
+            Most agencies will post for you. We build the strategy behind why
+            someone stops, reads, trusts, and books. We don't chase trends. We
+            build digital authority — the kind that compounds over time and
+            turns strangers into loyal, revenue-generating customers.
+          </p>
+        </div>
+        <div class="belief-right fade-up" style="transition-delay: 0.15s">
+          <div class="services-heading">Here's how we do that:</div>
+          <ul class="services-list">
+            <li>
+              <a class="service-item"
+                ><span class="svc-name">Brand Strategy</span></a
+              >
+            </li>
+            <li>
+              <a class="service-item"><span class="svc-name">Design</span></a>
+            </li>
+            <li>
+              <a class="service-item"
+                ><span class="svc-name">Content Production</span></a
+              >
+            </li>
+            <li>
+              <a class="service-item"
+                ><span class="svc-name">Social Media Management</span></a
+              >
+            </li>
+            <li>
+              <a class="service-item"
+                ><span class="svc-name">Performance Marketing</span></a
+              >
+            </li>
+            <li>
+              <a class="service-item"
+                ><span class="svc-name"
+                  >Website Design &amp; Development</span
+                ></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR WORK -->
+    <section class="work-section" id="work">
+      <div class="section-inner">
+        <div class="section-label fade-up">Our Work</div>
+        <h2 class="work-heading fade-up">A look at what we create</h2>
+        <p class="work-sub fade-up">
+          Get a feel for the quality we bring to every brief.
+        </p>
+
+        <!-- SOCIAL MEDIA — 2 rows -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Social Media Content</div>
+          <div class="social-grid">
+            <!-- ROW 1: Vertical 9/16 -->
+            <div>
+              <div class="social-row-label">Reels &amp; Stories</div>
+              <div class="carousel">
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/2.mp4" poster="assets/socialmedia/thumbs/2.jpg">
+                      <source data-src="assets/socialmedia/2.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/3.mp4" poster="assets/socialmedia/thumbs/3.jpg">
+                      <source data-src="assets/socialmedia/3.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/4.mp4" poster="assets/socialmedia/thumbs/4.jpg">
+                      <source data-src="assets/socialmedia/4.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/5.mp4" poster="assets/socialmedia/thumbs/5.jpg">
+                      <source data-src="assets/socialmedia/5.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/6.mp4" poster="assets/socialmedia/thumbs/6.jpg">
+                      <source data-src="assets/socialmedia/6.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/7.mp4" poster="assets/socialmedia/thumbs/7.jpg">
+                      <source data-src="assets/socialmedia/7.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/8.mp4" poster="assets/socialmedia/thumbs/8.jpg">
+                      <source data-src="assets/socialmedia/8.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+                <div class="media-wrap v">
+                  <div class="carousel-item v" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/9.mp4" poster="assets/socialmedia/thumbs/9.jpg">
+                      <source data-src="assets/socialmedia/9.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ROW 2: Horizontal 16/9 -->
+            <div>
+              <div class="social-row-label">Feed &amp; Campaign Videos</div>
+              <div class="carousel">
+                <div class="media-wrap h">
+                  <div class="carousel-item h" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted data-src="assets/socialmedia/1.mp4" poster="assets/socialmedia/thumbs/1.jpg">
+                      <source data-src="assets/socialmedia/1.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Brand Name</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRODUCTION -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Production</div>
+          <div class="carousel">
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <!-- Replace with video if needed: <video preload="none" playsinline loop muted data-src="assets/production/1.mp4" poster="assets/production/thumbs/1.jpg">...</video> -->
+                <img data-src="assets/production/1.webp" alt="Production 1" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/2.webp" alt="Production 2" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/3.webp" alt="Production 3" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/4.webp" alt="Production 4" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/5.webp" alt="Production 5" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/6.webp" alt="Production 6" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <!-- Add up to 2 more production items if needed -->
+            <!-- 
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/7.webp" alt="Production 7" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/8.webp" alt="Production 8" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            -->
+          </div>
+        </div>
+
+        <!-- DESIGN — images + videos -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Design</div>
+          <div class="carousel">
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/1.webp" alt="Design 1" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/2.webp" alt="Design 2" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/3.webp" alt="Design 3" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/4.webp" alt="Design 4" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/5.webp" alt="Design 5" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/6.webp" alt="Design 6" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <!-- Design videos — add as many as needed -->
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <video preload="none" playsinline loop muted data-src="assets/design/7.mp4" poster="assets/design/thumbs/7.jpg">
+                  <source data-src="assets/design/7.mp4" type="video/mp4" />
+                </video>
+                <div class="reel-play-btn">
+                  <div class="reel-play-circle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <video preload="none" playsinline loop muted data-src="assets/design/8.mp4" poster="assets/design/thumbs/8.jpg">
+                  <source data-src="assets/design/8.mp4" type="video/mp4" />
+                </video>
+                <div class="reel-play-btn">
+                  <div class="reel-play-circle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEBSITES -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Website Design &amp; Development</div>
+          <div class="website-grid">
+            <div class="site-wrap">
+              <a href="https://verystore.in/" target="_blank" rel="noopener" class="website-item">
+                <div class="skeleton"></div>
+                <img data-src="assets/website/very.png" alt="Very Store" />
+              </a>
+              <div class="site-label">Very Store <span>E-commerce</span></div>
+            </div>
+            <div class="site-wrap">
+              <a href="https://www.snipacademy.co.in/" target="_blank" rel="noopener" class="website-item">
+                <div class="skeleton"></div>
+                <img data-src="assets/website/snip.png" alt="Snip Academy" />
+              </a>
+              <div class="site-label">Snip Academy <span>Salon</span></div>
+            </div>
+            <div class="site-wrap">
+              <a href="https://www.astroyogisiddhartha.com/" target="_blank" rel="noopener" class="website-item">
+                <div class="skeleton"></div>
+                <img data-src="assets/website/yogi.png" alt="Astro Yogi Siddhartha" />
+              </a>
+              <div class="site-label">Astro Yogi Siddhartha <span>Astrology</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO WE WORK WITH -->
+    <section class="section" style="background: var(--white)">
+      <div class="section-inner">
+        <div class="section-label fade-up">Who We Work With</div>
+        <p
+          style="font-size: 16px; font-weight: 300; color: var(--stone); line-height: 1.85;"
+          class="fade-up"
+        >
+          Our best work happens with businesses that share a particular kind of
+          ambition — one built on long-term thinking, not short-term noise.
+        </p>
+        <div class="ideal-grid fade-up">
+          <div class="ideal-card">
+            <div class="sameline">
+              <div class="ideal-icon">◈</div>
+              <div class="ideal-head">Established businesses ready to grow</div>
+            </div>
+            <div class="ideal-item">You have a reputation — and you want the world to know it</div>
+            <div class="ideal-item">You're thinking in years, not weeks</div>
+            <div class="ideal-item">You want measurable growth, not just visibility</div>
+            <div class="ideal-item">You value craft and are willing to invest in it</div>
+          </div>
+          <div class="ideal-card">
+            <div class="sameline">
+              <div class="ideal-icon">◈</div>
+              <div class="ideal-head">Founders who want a real partner</div>
+            </div>
+            <div class="ideal-item">You want someone who understands your business, not just your brief</div>
+            <div class="ideal-item">You're open to honest strategy, even when it challenges assumptions</div>
+            <div class="ideal-item">You believe the best brands are built with intention</div>
+            <div class="ideal-item">You want one team that owns the full picture</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT RESULTS -->
+    <section class="section" id="results" style="background: var(--mist)">
+      <div class="section-inner">
+        <div class="section-label fade-up">Client Results</div>
+        <div class="results-grid fade-up">
+          <div class="result-card">
+            <div class="result-client">Resin Art Store India</div>
+            <div class="result-stat">100% Sales</div>
+            <p class="result-desc">
+              Built an entire e-commerce brand from the ground up. All revenue
+              driven through social media alone — no paid ads, no retail shelf.
+              Grew to 15K+ community and 40% revenue growth YoY for three
+              consecutive years.
+            </p>
+          </div>
+          <div class="result-card">
+            <div class="result-client">Snip Salon &amp; Spa</div>
+            <div class="result-stat">300% Reach</div>
+            <p class="result-desc">
+              Tripled social engagement and reach for a 25-year-old salon brand.
+              Elevated the digital identity to match the premium in-store
+              experience — measurable increases in new client bookings followed.
+            </p>
+          </div>
+          <div class="result-card">
+            <div class="result-client">Kaizen</div>
+            <div class="result-stat">+50% Footfall</div>
+            <p class="result-desc">
+              Increased in-studio and café footfalls by 50% in just 4 months
+              through targeted local marketing, social strategy, and content
+              that brought the Kaizen experience to life online.
+            </p>
+          </div>
+          <div class="result-card">
+            <div class="result-client">Villa Donna</div>
+            <div class="result-stat">+25% Leads</div>
+            <p class="result-desc">
+              Increased qualified leads by 25% through targeted performance
+              marketing. Direct, measurable impact on occupancy — the kind of
+              ROI a premium hospitality brand demands.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENT REFLECTIONS -->
+    <section class="reflections-section" id="reflections">
+      <div class="reflections-inner">
+        <div class="reflections-header fade-up">
+          <div>
+            <div class="section-label" style="margin-bottom: 0.75rem;">Client Reflections</div>
+            <h2 class="reflections-heading">Words from the people<br>we've built with</h2>
+          </div>
+          <p class="reflections-sub">Real partnerships. Real outcomes. In their own words.</p>
+        </div>
+        <div class="testimonials-grid fade-up">
+
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">
+              RARA is a powerhouse for fast-turnaround, high-quality digital content. Whether it was a last-minute campaign for a tropical ad launch or a long-term strategy for our 25th-Anniversary event, they pivoted effortlessly between projects. They have an incredible eye for detail and a knack for making even the most technical information feel approachable. Having worked with them for over a year now, they have become an indispensable part of SNIP's digital growth.
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AB</div>
+              <div>
+                <div class="testimonial-name">Archana Bhobe</div>
+                <div class="testimonial-role">CEO, Snip Salons &amp; Spas</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">
+              Rara brought a level of strategic depth we haven't found elsewhere. From developing a viral digital strategy for our digital launch to managing our community engagement, their approach is always expert-driven and results-oriented. They acted as a true brand custodian, ensuring every piece of content was consistent with our long-term vision.
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SC</div>
+              <div>
+                <div class="testimonial-name">Sheetal Chauhan</div>
+                <div class="testimonial-role">Founder, Dhaval Arts</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-text">
+              We brought RARA on for VERY'S production and web development, and what stood out most was how quickly everything clicked — they got the brief immediately without us having to go back and forth multiple times. Their marketing and positioning strategy was a total win; the brand deck they built was spot on and gave us exactly what we needed to secure some incredible collaborations for our Dia de Women event.
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">KD</div>
+              <div>
+                <div class="testimonial-name">Khushi Dawda</div>
+                <div class="testimonial-role">Founder, VERY</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA + FORM -->
+    <section class="cta-section" id="contact">
+      <div class="cta-inner">
+        <div class="cta-left fade-up">
+          <h2 class="cta-headline">
+            Ready to make your brand as <em>undeniable online</em> as it is in
+            the room?
+          </h2>
+          <p class="cta-sub">
+            A 15-minute call is all it takes to know if we're the right fit.
+          </p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <a class="contact-val" href="mailto:ridhi@raradigital.in">ridhi@raradigital.in</a>
+            </div>
+            <div class="contact-item">
+              <div class="contact-dot"></div>
+              <a class="contact-val" href="tel:+919536463555">+91 95364 63555</a>
+            </div>
+          </div>
+        </div>
+        <div class="cta-right fade-up" style="transition-delay: 0.15s">
+          <div class="form-wrap">
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="form-label">Your Name</label>
+                <input class="form-input" type="text" id="f-name" placeholder="Full Name" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Business Name</label>
+                <input class="form-input" type="text" id="f-business" placeholder="Your Brand" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Email</label>
+                <input class="form-input" type="email" id="f-email" placeholder="Enter Your Email" required />
+              </div>
+              <div class="form-field">
+                <label class="form-label">Phone</label>
+                <input class="form-input" type="tel" id="f-phone" placeholder="+91 98XXX XXX" />
+              </div>
+              <div class="form-field full">
+                <label class="form-label">Best Time to Contact</label>
+                <select class="form-select form-input" id="f-time">
+                  <option value="" disabled selected>Select a time</option>
+                  <option>Morning (9am – 12pm)</option>
+                  <option>Afternoon (12pm – 4pm)</option>
+                  <option>Evening (4pm – 7pm)</option>
+                  <option>Flexible / Anytime</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label class="form-label">What Are You Looking to Build?</label>
+                <select class="form-select form-input" id="f-service">
+                  <option value="" disabled selected>Select what fits best</option>
+                  <option>Brand strategy from scratch</option>
+                  <option>Website design &amp; development</option>
+                  <option>Social media management</option>
+                  <option>Content production &amp; design</option>
+                  <option>Performance marketing</option>
+                  <option>Full-service partnership</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label class="form-label">Anything Else We Should Know?</label>
+                <textarea class="form-textarea" id="f-message"></textarea>
+              </div>
+            </div>
+            <button class="form-submit" id="form-submit-btn" onclick="submitForm()">
+              Let's Talk Strategy →
+            </button>
+            <div id="form-status" class="form-status"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <div class="footer-logo">
+              <img src="assets/Rara_logo.png" alt="RARA Digital" />
+            </div>
+            <p class="footer-tagline">
+              Building digital authority for established businesses ready to
+              grow — crafted with strategy, not shortcuts.
+            </p>
+            <div class="footer-social">
+              <a href="https://www.instagram.com/rara.digitalmarketing/" target="_blank" aria-label="Instagram">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="https://linkedin.com/company/raradigital" target="_blank" aria-label="LinkedIn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Navigation</div>
+            <ul class="footer-nav">
+              <li><a href="#work">Our Work</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#results">Results</a></li>
+              <li><a href="#reflections">Client Reflections</a></li>
+              <li><a href="#contact">Schedule a Call</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Get in Touch</div>
+            <div class="footer-contact-items">
+              <div>
+                <div class="footer-contact-label">Email</div>
+                <a href="mailto:ridhi@raradigital.in" class="footer-contact-val">ridhi@raradigital.in</a>
+              </div>
+              <div>
+                <div class="footer-contact-label">Phone</div>
+                <a href="tel:+919536463555" class="footer-contact-val">+91 95364 63555</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title">Locations</div>
+            <div class="footer-locations">
+              <div><div class="footer-location-city">Pune</div></div>
+              <div><div class="footer-location-city">Mumbai</div></div>
+              <div><div class="footer-location-city">Goa</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-copy">© 2025 RARA Digital Marketing. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ─── HERO VIDEO ───
+      function toggleShowreel() {
+        const v = document.getElementById("showreel");
+        const btn = document.getElementById("playBtn");
+        if (v.paused) {
+          btn.classList.add("hidden");
+          v.muted = false;
+          v.play().catch(() => {
+            v.muted = true;
+            v.play();
+          });
+        } else {
+          v.pause();
+          btn.classList.remove("hidden");
+        }
+      }
+
+      // ─── SKELETON HIDE ───
+      function clearSkeleton(el) {
+        const s = el.closest(".carousel-item, .website-item")?.querySelector(".skeleton");
+        if (s) s.classList.add("gone");
+        el.classList.add("loaded");
+      }
+
+      // ─── LAZY LOAD IMAGES ───
+      const imgIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const img = e.target.querySelector("img[data-src]");
+            if (img) {
+              img.src = img.dataset.src;
+              img.removeAttribute("data-src");
+              img.onload = () => clearSkeleton(img);
+              img.onerror = () => clearSkeleton(img);
+            }
+            imgIO.unobserve(e.target);
+          });
+        },
+        { rootMargin: "300px" }
+      );
+
+      document.querySelectorAll(".carousel-item, .website-item").forEach((el) => {
+        if (el.querySelector("img[data-src]")) imgIO.observe(el);
+      });
+
+      // ─── LAZY LOAD VIDEO METADATA ───
+      const vidIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const v = e.target.querySelector("video");
+            if (v && !v.dataset.loaded) {
+              const src = v.dataset.src || v.querySelector("source[data-src]")?.getAttribute("data-src");
+              if (src) {
+                v.src = src;
+                v.preload = "metadata";
+                v.load();
+                v.addEventListener("loadeddata", () => clearSkeleton(v), { once: true });
+                v.dataset.loaded = "1";
+              }
+            }
+            vidIO.unobserve(e.target);
+          });
+        },
+        { rootMargin: "400px" }
+      );
+
+      document.querySelectorAll(".carousel-item").forEach((el) => {
+        if (el.querySelector("video")) vidIO.observe(el);
+      });
+
+      // ─── VIDEO TOGGLE ───
+      function toggleCarouselVideo(item) {
+        const v = item.querySelector("video");
+        const btn = item.querySelector(".reel-play-btn");
+        if (!v) return;
+        document.querySelectorAll(".carousel-item.playing").forEach((el) => {
+          if (el !== item) {
+            el.classList.remove("playing");
+            el.querySelector("video")?.pause();
+            const b = el.querySelector(".reel-play-btn");
+            if (b) b.style.display = "flex";
+          }
+        });
+        if (item.classList.contains("playing")) {
+          item.classList.remove("playing");
+          v.pause();
+          btn.style.display = "flex";
+        } else {
+          if (!v.dataset.loaded) {
+            const src = v.dataset.src || v.querySelector("source[data-src]")?.getAttribute("data-src");
+            if (src) {
+              v.src = src;
+              v.load();
+              v.dataset.loaded = "1";
+            }
+          }
+          item.classList.add("playing");
+          btn.style.display = "none";
+          v.muted = false;
+          v.play();
+        }
+      }
+
+      // ─── FADE UP ───
+      const fadeIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              fadeIO.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll(".fade-up").forEach((el) => fadeIO.observe(el));
+
+      // ─── DRAG SCROLL ───
+      document.querySelectorAll(".carousel").forEach((c) => {
+        let down = false, sx, sl;
+        c.addEventListener("mousedown", (e) => { down = true; sx = e.pageX - c.offsetLeft; sl = c.scrollLeft; });
+        c.addEventListener("mouseleave", () => (down = false));
+        c.addEventListener("mouseup", () => (down = false));
+        c.addEventListener("mousemove", (e) => {
+          if (!down) return;
+          e.preventDefault();
+          c.scrollLeft = sl - (e.pageX - c.offsetLeft - sx) * 1.2;
+        });
+        let tx, tsl;
+        c.addEventListener("touchstart", (e) => { tx = e.touches[0].pageX; tsl = c.scrollLeft; });
+        c.addEventListener("touchmove", (e) => { c.scrollLeft = tsl + (tx - e.touches[0].pageX); });
+      });
+
+      // ─── MOBILE MENU ───
+      function toggleMenu(btn) {
+        const links = document.querySelector(".nav-links");
+        const open = links.style.display === "flex";
+        links.style.display = open ? "none" : "flex";
+        if (!open)
+          Object.assign(links.style, {
+            flexDirection: "column",
+            position: "absolute",
+            top: "72px",
+            left: "0",
+            right: "0",
+            background: "rgba(247,244,239,0.98)",
+            padding: "1.5rem 5vw 2rem",
+            borderBottom: "0.5px solid var(--border)",
+            backdropFilter: "blur(12px)",
+            gap: "1.25rem",
+            zIndex: "99",
+          });
+      }
+
+      // ─── FORM — EMAILJS ───
+      async function submitForm() {
+        const btn = document.getElementById("form-submit-btn");
+        const status = document.getElementById("form-status");
+        const name = document.getElementById("f-name").value.trim();
+        const business = document.getElementById("f-business").value.trim();
+        const email = document.getElementById("f-email").value.trim();
+        const phone = document.getElementById("f-phone").value.trim();
+        const time = document.getElementById("f-time").value;
+        const service = document.getElementById("f-service").value;
+        const message = document.getElementById("f-message").value.trim();
+
+        if (!name || !business || !email) {
+          status.className = "form-status error";
+          status.textContent = "Please fill in your name, business name, and email.";
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          status.className = "form-status error";
+          status.textContent = "Please enter a valid email address.";
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+        status.className = "form-status";
+
+        try {
+          await emailjs.send(
+            "service_y0bovod",
+            "template_qf4elrh",
+            {
+              from_name: name,
+              business,
+              reply_to: email,
+              phone: phone || "Not provided",
+              best_time: time || "Not specified",
+              service_interest: service || "Not specified",
+              message: message || "—",
+            }
+          );
+          status.className = "form-status success";
+          status.textContent = "✓ Thank you! We'll be in touch within 24 hours.";
+          btn.textContent = "Sent ✓";
+          ["f-name", "f-business", "f-email", "f-phone", "f-message"].forEach(
+            (id) => (document.getElementById(id).value = "")
+          );
+          document.getElementById("f-time").selectedIndex = 0;
+          document.getElementById("f-service").selectedIndex = 0;
+        } catch (err) {
+          console.error("EmailJS error:", err);
+          status.className = "form-status error";
+          status.textContent = "Couldn't send right now — please email ridhi@raradigital.in directly.";
+          btn.disabled = false;
+          btn.textContent = "Let's Talk Strategy →";
+        }
+      }
+    </script>
+  </body>
+</html>
