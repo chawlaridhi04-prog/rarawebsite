@@ -500,7 +500,8 @@
         display: flex;
         gap: 14px;
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        /* scroll-snap-type: x mandatory; */
+        scroll-snap-type: none;
         scroll-behavior: smooth;
         padding-bottom: 8px;
         cursor: grab;
@@ -527,7 +528,8 @@
         flex-direction: column;
         gap: 8px;
         flex-shrink: 0;
-        scroll-snap-align: start;
+        /* scroll-snap-align: start; */
+         scroll-snap-align: none;
       }
       .media-wrap.v {
         width: 200px;
@@ -554,7 +556,7 @@
         aspect-ratio: 16/9;
       }
       .carousel-item.d {
-      aspect-ratio: 3/4;
+       /* aspect-ratio: 3/4; */
       }
 
       .carousel-item img,
@@ -2533,6 +2535,15 @@
         }
       }
 
+      // ─── HERO VIDEO END RESET ───
+      document.getElementById('showreel').addEventListener('ended', () => {
+        const v = document.getElementById('showreel');
+        const btn = document.getElementById('playBtn');
+        v.currentTime = 0;
+        v.load();
+        btn.classList.remove('hidden');
+      });
+
       // ─── SKELETON HIDE ───
       function clearSkeleton(el) {
         const s = el
@@ -2631,6 +2642,22 @@
           v.play();
         }
       }
+
+// ─── VIDEO END RESET ───
+document.addEventListener('click', () => {}); // ensure delegation is active
+
+document.querySelectorAll('.carousel-item').forEach((item) => {
+  const v = item.querySelector('video');
+  if (!v) return;
+  v.addEventListener('ended', () => {
+    item.classList.remove('playing');
+    v.pause();
+    v.currentTime = 0;
+    v.load(); // reloads poster/thumbnail
+    const btn = item.querySelector('.reel-play-btn');
+    if (btn) btn.style.display = 'flex';
+  });
+});
 
       // ─── FADE UP ───
       const fadeIO = new IntersectionObserver(
