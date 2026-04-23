@@ -554,7 +554,7 @@
         aspect-ratio: 16/9;
       }
       .carousel-item.d {
-      /*  aspect-ratio: 3/4; */
+      aspect-ratio: 3/4;
       }
 
       .carousel-item img,
@@ -1311,6 +1311,14 @@
         display: block;
       }
 
+      .result-eyebrow {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
     </style>
   </head>
   <body>
@@ -1363,7 +1371,7 @@
               id="showreel"
               preload="metadata"
               playsinline
-              poster="assets/thumbnails/12.webp"
+              poster="assets/thumbnails/showreel-op2.webp"
             >
               <source src="assets/showreel.mp4" type="video/mp4" />
             </video>
@@ -1510,13 +1518,12 @@
           Get a feel for the quality we bring to every brief.
         </p>
 
-        <!-- SOCIAL MEDIA — 2 rows -->
+        <!-- SOCIAL MEDIA — row 1 -->
         <div class="work-block fade-up">
           <div class="work-block-label">Social Media Content</div>
           <div class="social-grid">
             <!-- ROW 1: Vertical 9/16 -->
             <div>
-              <div class="social-row-label">Reels &amp; Stories</div>
               <div class="carousel">
                 <!-- Repeat this block per video. Replace Brand Name and file paths. -->
                 <div class="media-wrap v">
@@ -1551,7 +1558,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1585,7 +1591,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1619,7 +1624,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1653,7 +1657,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
+
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1687,7 +1691,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1721,7 +1724,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1755,7 +1757,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1789,7 +1790,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1823,7 +1823,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
                 <div class="media-wrap v">
                   <div
@@ -1857,14 +1856,19 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
                 </div>
               </div>
             </div>
 
-            <!-- ROW 2: Horizontal 16/9 -->
+          </div>
+        </div>
+
+        <!-- SOCIAL MEDIA — row 2 -->
+        <div class="work-block fade-up">
+          <div class="work-block-label">Brand Campaigns</div>
+          <div class="social-grid">
+
             <div>
-              <div class="social-row-label">Feed &amp; Campaign Videos</div>
               <div class="carousel">
                 <div class="media-wrap h">
                   <div
@@ -1898,8 +1902,63 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label"><strong>Brand Name</strong></div>
+                  <div class="media-label"><strong>Millennium Club by Ileseum x Pheonix</strong></div>
                 </div>
+
+                <div class="media-wrap h">
+                  <div class="carousel-item yt">
+                    <iframe 
+                      src="https://www.youtube.com/embed/cd5mysykRiI?si=BXV8P31YQ8KhYjnn"
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  <div class="media-label"><strong>Tata Motors</strong></div>
+                </div>
+
+                <div class="media-wrap h">
+                  <div class="carousel-item yt">
+                    <iframe 
+                      src="https://www.youtube.com/embed/indPm1n0u7Y?si=Ka8AoHqb6J8nPw5i"
+                      title="YouTube video player"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                  <div class="media-label"><strong>Tata Motors</strong></div>
+                </div>
+                <div class="media-wrap h">
+                  <div class="carousel-item" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <!-- Replace with video if needed: <video preload="none" playsinline loop muted data-src="assets/production/1.mp4" poster="assets/production/thumbs/1.jpg">...</video> -->
+                    <img data-src="assets/production/1.jpeg" alt="Production 1" />
+                  </div>
+                  <div class="media-label"><strong>Snapchat</strong></div>
+                </div>
+
+
+                <!-- Video 2: h+h, object-fit contain stops cropping -->
+                <div class="media-wrap h">
+                  <div class="carousel-item h" onclick="toggleCarouselVideo(this)">
+                    <div class="skeleton"></div>
+                    <video preload="none" playsinline loop muted 
+                      data-src="assets/design/design1.mp4" 
+                      poster="assets/thumbnails/kk.webp"
+                      style="object-fit: contain;">
+                      <source data-src="assets/design/design1.mp4" type="video/mp4" />
+                    </video>
+                    <div class="reel-play-btn">
+                      <div class="reel-play-circle">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="media-label"><strong>Kerastase x Snip</strong></div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -1909,73 +1968,31 @@
         <div class="work-block fade-up">
           <div class="work-block-label">Production</div>
           <div class="carousel">
-            <div class="media-wrap h">
-              <div class="carousel-item yt">
-                <iframe 
-                  src="https://www.youtube.com/embed/cd5mysykRiI?si=BXV8P31YQ8KhYjnn"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen>
-                </iframe>
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
 
-            <div class="media-wrap h">
-              <div class="carousel-item yt">
-                <iframe 
-                  src="https://www.youtube.com/embed/indPm1n0u7Y?si=Ka8AoHqb6J8nPw5i"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allowfullscreen>
-                </iframe>
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
-                <div class="skeleton"></div>
-                <!-- Replace with video if needed: <video preload="none" playsinline loop muted data-src="assets/production/1.mp4" poster="assets/production/thumbs/1.jpg">...</video> -->
-                <img data-src="assets/production/1.jpeg" alt="Production 1" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
+
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
                 <img data-src="assets/production/2.jpeg" alt="Production 2" />
               </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
-                <div class="skeleton"></div>
-                <img data-src="assets/production/3.jpeg" alt="Production 3" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
             </div>
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
                 <img data-src="assets/production/4.jpeg" alt="Production 4" />
               </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
             </div>
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
                 <img data-src="assets/production/5.jpeg" alt="Production 5" />
               </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
             </div>
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
                 <img data-src="assets/production/6.jpeg" alt="Production 6" />
               </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
             </div>
             <!-- Add up to 2 more production items if needed -->
             <!-- 
@@ -2001,24 +2018,54 @@
         <div class="work-block fade-up">
           <div class="work-block-label">Design</div>
           <div class="carousel">
+
+
             <div class="media-wrap d">
-              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+              <div class="carousel-item d">
                 <div class="skeleton"></div>
-                <video preload="none" playsinline loop muted data-src="assets/design/design1.mp4" poster="assets/design/thumbs/7.jpg">
-                  <source data-src="assets/design/design1.mp4" type="video/mp4" />
-                </video>
-                <div class="reel-play-btn">
-                  <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
-                  </div>
-                </div>
+                <img data-src="assets/design/1.webp" alt="Design 1" />
               </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/2.webp" alt="Design 2" />
+              </div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/3.webp" alt="Design 3" />
+              </div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/4.webp" alt="Design 4" />
+              </div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/5.webp" alt="Design 5" />
+              </div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/6.webp" alt="Design 6" />
+              </div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d">
+                <div class="skeleton"></div>
+                <img data-src="assets/design/7.webp" alt="Design 7" />
+              </div>
             </div>
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
-                <video preload="none" playsinline loop muted data-src="assets/design/design2.mp4" poster="assets/design/thumbs/7.jpg">
+                <video preload="none" playsinline loop muted data-src="assets/design/design2.mp4" poster="assets/thumbnails/design_poster.webp">
                   <source data-src="assets/design/design2.mp4" type="video/mp4" />
                 </video>
                 <div class="reel-play-btn">
@@ -2027,56 +2074,6 @@
                   </div>
                 </div>
               </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/1.webp" alt="Design 1" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/2.webp" alt="Design 2" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/3.webp" alt="Design 3" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/4.webp" alt="Design 4" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/5.webp" alt="Design 5" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/6.webp" alt="Design 6" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
-            </div>
-            <div class="media-wrap d">
-              <div class="carousel-item d">
-                <div class="skeleton"></div>
-                <img data-src="assets/design/7.webp" alt="Design 7" />
-              </div>
-              <div class="media-label"><strong>Brand Name</strong></div>
             </div>
           </div>
         </div>
@@ -2093,7 +2090,7 @@
                 class="website-item"
               >
                 <div class="skeleton"></div>
-                <img data-src="assets/website/very.png" alt="Very Store" />
+                <img data-src="assets/website/very2.png" alt="Very Store" />
               </a>
               <div class="site-label">Very Store <span>E-commerce</span></div>
             </div>
@@ -2105,7 +2102,7 @@
                 class="website-item"
               >
                 <div class="skeleton"></div>
-                <img data-src="assets/website/snip.png" alt="Snip Academy" />
+                <img data-src="assets/website/Snip2.png" alt="Snip Academy" />
               </a>
               <div class="site-label">Snip Academy <span>Salon</span></div>
             </div>
@@ -2118,7 +2115,7 @@
               >
                 <div class="skeleton"></div>
                 <img
-                  data-src="assets/website/yogi.png"
+                  data-src="assets/website/Astro.png"
                   alt="Astro Yogi Siddhartha"
                 />
               </a>
@@ -2193,43 +2190,57 @@
       <div class="section-inner">
         <div class="section-label fade-up">Client Results</div>
         <div class="results-grid fade-up">
-          <div class="result-card">
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
             <div class="result-client">Resin Art Store India</div>
-            <div class="result-stat">100% Sales</div>
-            <p class="result-desc">
-              Built an entire e-commerce brand from the ground up. All revenue
-              driven through social media alone — no paid ads, no retail shelf.
-              Grew to 15K+ community and 40% revenue growth YoY for three
-              consecutive years.
-            </p>
+            <div class="result-eyebrow">E-commerce</div>
           </div>
-          <div class="result-card">
+          <div class="result-stat">100% Sales</div>
+          <p class="result-desc">
+            Built an entire e-commerce brand from the ground up. All revenue
+            driven through social media alone — no paid ads, no retail shelf.
+            Grew to 15K+ community and 40% revenue growth YoY for three
+            consecutive years.
+          </p>
+        </div>
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
             <div class="result-client">Snip Salon &amp; Spa</div>
-            <div class="result-stat">300% Reach</div>
-            <p class="result-desc">
-              Tripled social engagement and reach for a 25-year-old salon brand.
-              Elevated the digital identity to match the premium in-store
-              experience — measurable increases in new client bookings followed.
-            </p>
+            <div class="result-eyebrow">Salon</div>
           </div>
-          <div class="result-card">
+          <div class="result-stat">300% Reach</div>
+          <p class="result-desc">
+            Tripled social engagement and reach for a 25-year-old salon brand.
+            Elevated the digital identity to match the premium in-store
+            experience — measurable increases in new client bookings followed.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
             <div class="result-client">Kaizen</div>
-            <div class="result-stat">+50% Footfall</div>
-            <p class="result-desc">
-              Increased in-studio and café footfalls by 50% in just 4 months
-              through targeted local marketing, social strategy, and content
-              that brought the Kaizen experience to life online.
-            </p>
+            <div class="result-eyebrow">Wellness</div>
           </div>
-          <div class="result-card">
+          <div class="result-stat">+50% Footfall</div>
+          <p class="result-desc">
+            Increased in-studio and café footfalls by 50% in just 4 months
+            through targeted local marketing, social strategy, and content
+            that brought the Kaizen experience to life online.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
             <div class="result-client">Villa Donna</div>
-            <div class="result-stat">+25% Leads</div>
-            <p class="result-desc">
-              Increased qualified leads by 25% through targeted performance
-              marketing. Direct, measurable impact on occupancy — the kind of
-              ROI a premium hospitality brand demands.
-            </p>
+            <div class="result-eyebrow">Hospitality</div>
           </div>
+          <div class="result-stat">+25% Leads</div>
+          <p class="result-desc">
+            Increased qualified leads by 25% through targeted performance
+            marketing. Direct, measurable impact on occupancy — the kind of
+            ROI a premium hospitality brand demands.
+          </p>
+        </div>
         </div>
       </div>
     </section>
