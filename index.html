@@ -1351,6 +1351,51 @@
         text-transform: uppercase;
         color: var(--gold);
       }
+
+      .who-wrap {
+        max-width: 760px;
+        margin-top: 2.5rem;
+      }
+
+      .who-heading {
+        font-family: var(--serif);
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 1.25;
+        color: var(--ink);
+        margin-bottom: 2rem;
+      }
+
+      .who-heading em {
+        color: var(--purple-mid);
+        font-style: italic;
+      }
+
+      .who-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.4rem;
+      }
+
+      .who-line {
+        font-size: 16px;
+        font-weight: 300;
+        color: var(--stone);
+        line-height: 1.9;
+        position: relative;
+        padding-left: 18px;
+      }
+
+.who-line::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px; /* adjust for vertical alignment */
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
     </style>
   </head>
   <body>
@@ -2395,42 +2440,29 @@
           Our best work happens with businesses that share a particular kind of
           ambition — one built on long-term thinking, not short-term noise.
         </p>
-        <div class="ideal-grid fade-up">
-          <div class="ideal-card">
-            <div class="sameline">
-              <div class="ideal-icon">◈</div>
-              <div class="ideal-head">Established businesses ready to grow</div>
-            </div>
-            <div class="ideal-item">
-              You have a reputation — and you want the world to know it
-            </div>
-            <div class="ideal-item">You're thinking in years, not weeks</div>
-            <div class="ideal-item">
-              You want measurable growth, not just visibility
-            </div>
-            <div class="ideal-item">
-              You value craft and are willing to invest in it
-            </div>
-          </div>
-          <div class="ideal-card">
-            <div class="sameline">
-              <div class="ideal-icon">◈</div>
-              <div class="ideal-head">Founders who want a real partner</div>
-            </div>
-            <div class="ideal-item">
-              You want someone who understands your business, not just your
-              brief
-            </div>
-            <div class="ideal-item">
-              You're open to honest strategy, even when it challenges
-              assumptions
-            </div>
-            <div class="ideal-item">
-              You believe the best brands are built with intention
-            </div>
-            <div class="ideal-item">
-              You want one team that owns the full picture
-            </div>
+
+
+        <div class="who-wrap">
+          <h2 class="who-heading">
+            We work with businesses built on <em>reputation</em>.
+          </h2>
+
+          <div class="who-list">
+            <p class="who-line">
+              You have a track record — clients, trust, and years of proof behind you.
+            </p>
+
+            <p class="who-line">
+              You think in years, not weeks — steady authority over a viral moment, every time.
+            </p>
+
+            <p class="who-line">
+              You want a partner, not a vendor — someone who knows your business, not just your brief.
+            </p>
+
+            <p class="who-line">
+              You're ready to invest in what works — because you know the difference between cost and value.
+            </p>
           </div>
         </div>
       </div>
