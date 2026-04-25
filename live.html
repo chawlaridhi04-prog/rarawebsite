@@ -18,28 +18,6 @@
         emailjs.init({ publicKey: "VJdBgz4uwOjpv-Oni" });
       })();
     </script>
-
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window,document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '3457427677740914'); 
-    fbq('track', 'PageView');
-    </script>
-    <noscript>
-    <img height="1" width="1" 
-    src="https://www.facebook.com/tr?id=3457427677740914&ev=PageView
-    &noscript=1"/>
-    </noscript>
-    <!-- End Meta Pixel Code -->
-
-
     <style>
       *,
       *::before,
@@ -406,7 +384,10 @@
         text-decoration: none;
         border: 0.5px solid transparent;
       }
-
+      .service-item:hover {
+        background: var(--gold-pale);
+        border-color: var(--border-mid);
+      }
       .svc-name {
         font-size: 15px;
         font-weight: 500;
@@ -573,7 +554,7 @@
         aspect-ratio: 16/9;
       }
       .carousel-item.d {
-        /* aspect-ratio: 3/4; */
+       /* aspect-ratio: 3/4; */
       }
 
       .carousel-item img,
@@ -846,6 +827,7 @@
         }
       }
 
+      
       .contact-item {
         display: flex;
         align-items: center;
@@ -1204,7 +1186,7 @@
         }
       }
 
-      /* ─── CLIENT REFLECTIONS ─── */
+            /* ─── CLIENT REFLECTIONS ─── */
       .reflections-section {
         background: var(--white);
         padding: 7rem 5vw;
@@ -1250,9 +1232,7 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        transition:
-          box-shadow 0.25s,
-          transform 0.25s;
+        transition: box-shadow 0.25s, transform 0.25s;
       }
       .testimonial-card:hover {
         transform: translateY(-3px);
@@ -1265,12 +1245,7 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: linear-gradient(
-          90deg,
-          var(--gold),
-          var(--purple-light),
-          transparent
-        );
+        background: linear-gradient(90deg, var(--gold), var(--purple-light), transparent);
       }
       .testimonial-quote-mark {
         font-family: var(--serif);
@@ -1313,26 +1288,26 @@
         letter-spacing: 0.02em;
       }
       @media (max-width: 900px) {
-        .testimonials-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .reflections-sub {
-          text-align: left;
-        }
-      }
+  .testimonials-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .reflections-sub {
+    text-align: left;
+  }
+}
 
-      @media (max-width: 640px) {
-        .testimonials-grid {
-          grid-template-columns: 1fr;
-        }
-        .reflections-header {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-        .reflections-heading {
-          font-size: 28px;
-        }
-      }
+@media (max-width: 640px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  .reflections-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .reflections-heading {
+    font-size: 28px;
+  }
+}
 
       .carousel-item.yt {
         aspect-ratio: 16/9;
@@ -1351,6 +1326,7 @@
         text-transform: uppercase;
         color: var(--gold);
       }
+
     </style>
   </head>
   <body>
@@ -1401,7 +1377,7 @@
           <div class="video-frame" onclick="toggleShowreel()">
             <video
               id="showreel"
-              preload="none"
+              preload="metadata"
               playsinline
               poster="assets/thumbnails/showreel-op2.webp"
             >
@@ -1468,7 +1444,11 @@
               margin: 0 0 1.25rem;
             "
           >
-            Most business owners I speak to have built an exceptional reputation — but their digital presence hasn't kept pace, and clients are increasingly choosing competitors simply because of their online credibility. <br> We step in to bridge that gap for legacy businesses — with strategy rooted in driving revenue, not just content. Having personally led campaigns for some of India's most recognised names, worked across Bollywood, and built my own company to 100% digital sales, we understand the difference between showing up and actually growing.
+            "We don't chase trends; we build digital assets that reflect your
+            real-world reputation. Having led campaigns for India's largest
+            brands and built my own online business to 100% digital sales, I
+            understand that every rupee must drive ROI. Let's talk about how we
+            can scale yours."
           </blockquote>
           <div
             style="
@@ -1493,7 +1473,10 @@
             Being seen isn't enough. Your brand needs to be chosen.
           </div>
           <p class="belief-body">
-            Most agencies will post for you. We build the strategy behind why someone stops, reads, trusts, and books — and then see it through, end to end.
+            Most agencies will post for you. We build the strategy behind why
+            someone stops, reads, trusts, and books. We don't chase trends. We
+            build digital authority — the kind that compounds over time and
+            turns strangers into loyal, revenue-generating customers.
           </p>
         </div>
         <div class="belief-right fade-up" style="transition-delay: 0.15s">
@@ -1551,7 +1534,7 @@
             <div>
               <div class="carousel">
                 <!-- Repeat this block per video. Replace Brand Name and file paths. -->
-
+                
                 <div class="media-wrap v">
                   <div
                     class="carousel-item v"
@@ -1617,7 +1600,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> 
                 <div class="media-wrap v">
                   <div
                     class="carousel-item v"
@@ -1683,7 +1666,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> 
                 <div class="media-wrap v">
                   <div
                     class="carousel-item v"
@@ -1716,7 +1699,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>                                                              
                 <div class="media-wrap v">
                   <div
                     class="carousel-item v"
@@ -1816,6 +1799,7 @@
                       </div>
                     </div>
                   </div>
+
                 </div>
 
                 <div class="media-wrap v">
@@ -1916,7 +1900,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>              
                 <div class="media-wrap v">
                   <div
                     class="carousel-item v"
@@ -1951,6 +1935,7 @@
                   </div>
                 </div>
 
+
                 <div class="media-wrap v">
                   <div
                     class="carousel-item v"
@@ -1984,8 +1969,13 @@
                     </div>
                   </div>
                 </div>
+
+
+
+
               </div>
             </div>
+
           </div>
         </div>
 
@@ -1993,6 +1983,7 @@
         <div class="work-block fade-up">
           <div class="work-block-label">Brand Campaigns</div>
           <div class="social-grid">
+
             <div>
               <div class="carousel">
                 <div class="media-wrap h">
@@ -2027,28 +2018,17 @@
                       </div>
                     </div>
                   </div>
-                  <div class="media-label">
-                    <strong>Millennium Club by Ileseum x Pheonix</strong>
-                  </div>
+                  <div class="media-label"><strong>Millennium Club by Ileseum x Pheonix</strong></div>
                 </div>
 
                 <div class="media-wrap h">
                   <div class="carousel-item yt">
-                    <iframe
+                    <iframe 
                       src="https://www.youtube.com/embed/cd5mysykRiI?si=BXV8P31YQ8KhYjnn"
                       title="YouTube video player"
-                      allow="
-                        accelerometer;
-                        autoplay;
-                        clipboard-write;
-                        encrypted-media;
-                        gyroscope;
-                        picture-in-picture;
-                        web-share;
-                      "
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    >
+                      allowfullscreen>
                     </iframe>
                   </div>
                   <div class="media-label"><strong>Tata Motors</strong></div>
@@ -2056,87 +2036,56 @@
 
                 <div class="media-wrap h">
                   <div class="carousel-item yt">
-                    <iframe
+                    <iframe 
                       src="https://www.youtube.com/embed/indPm1n0u7Y?si=Ka8AoHqb6J8nPw5i"
                       title="YouTube video player"
-                      allow="
-                        accelerometer;
-                        autoplay;
-                        clipboard-write;
-                        encrypted-media;
-                        gyroscope;
-                        picture-in-picture;
-                        web-share;
-                      "
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    >
+                      allowfullscreen>
                     </iframe>
                   </div>
                   <div class="media-label"><strong>Tata Motors</strong></div>
                 </div>
                 <div class="media-wrap h">
-                  <div
-                    class="carousel-item"
-                    onclick="toggleCarouselVideo(this)"
-                  >
+                  <div class="carousel-item" onclick="toggleCarouselVideo(this)">
                     <div class="skeleton"></div>
                     <!-- Replace with video if needed: <video preload="none" playsinline loop muted data-src="assets/production/1.mp4" poster="assets/production/thumbs/1.jpg">...</video> -->
-                    <img
-                      data-src="assets/production/1.jpeg"
-                      alt="Production 1"
-                    />
+                    <img data-src="assets/production/1.jpeg" alt="Production 1" />
                   </div>
                   <div class="media-label"><strong>Snapchat</strong></div>
                 </div>
 
+
                 <!-- Video 2: h+h, object-fit contain stops cropping -->
                 <div class="media-wrap h">
-                  <div
-                    class="carousel-item h"
-                    onclick="toggleCarouselVideo(this)"
-                  >
+                  <div class="carousel-item h" onclick="toggleCarouselVideo(this)">
                     <div class="skeleton"></div>
-                    <video
-                      preload="none"
-                      playsinline
-                      loop
-                      muted
-                      data-src="assets/design/design1.mp4"
+                    <video preload="none" playsinline loop muted 
+                      data-src="assets/design/design1.mp4" 
                       poster="assets/thumbnails/kk.webp"
-                      style="object-fit: contain"
-                    >
-                      <source
-                        data-src="assets/design/design1.mp4"
-                        type="video/mp4"
-                      />
+                      style="object-fit: contain;">
+                      <source data-src="assets/design/design1.mp4" type="video/mp4" />
                     </video>
                     <div class="reel-play-btn">
                       <div class="reel-play-circle">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                        >
-                          <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
                       </div>
                     </div>
                   </div>
-                  <div class="media-label">
-                    <strong>Kerastase x Snip</strong>
-                  </div>
+                  <div class="media-label"><strong>Kerastase x Snip</strong></div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
 
         <!-- PRODUCTION -->
-        <!-- <div class="work-block fade-up">
+        <div class="work-block fade-up">
           <div class="work-block-label">Production</div>
           <div class="carousel">
+
+
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
@@ -2161,13 +2110,31 @@
                 <img data-src="assets/production/6.jpeg" alt="Production 6" />
               </div>
             </div>
+            <!-- Add up to 2 more production items if needed -->
+            <!-- 
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/7.webp" alt="Production 7" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            <div class="media-wrap d">
+              <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
+                <div class="skeleton"></div>
+                <img data-src="assets/production/8.webp" alt="Production 8" />
+              </div>
+              <div class="media-label"><strong>Brand Name</strong></div>
+            </div>
+            -->
           </div>
-        </div> -->
+        </div>
 
         <!-- DESIGN — 6 images -->
         <div class="work-block fade-up">
           <div class="work-block-label">Design</div>
           <div class="carousel">
+
             <div class="media-wrap d">
               <div class="carousel-item d">
                 <div class="skeleton"></div>
@@ -2200,6 +2167,8 @@
               </div>
             </div>
 
+
+
             <div class="media-wrap d">
               <div class="carousel-item d">
                 <div class="skeleton"></div>
@@ -2210,24 +2179,12 @@
             <div class="media-wrap d">
               <div class="carousel-item d" onclick="toggleCarouselVideo(this)">
                 <div class="skeleton"></div>
-                <video
-                  preload="none"
-                  playsinline
-                  loop
-                  muted
-                  data-src="assets/design/design2.mp4"
-                  poster="assets/thumbnails/design_poster.webp"
-                >
-                  <source
-                    data-src="assets/design/design2.mp4"
-                    type="video/mp4"
-                  />
+                <video preload="none" playsinline loop muted data-src="assets/design/design2.mp4" poster="assets/thumbnails/design_poster.webp">
+                  <source data-src="assets/design/design2.mp4" type="video/mp4" />
                 </video>
                 <div class="reel-play-btn">
                   <div class="reel-play-circle">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" />
-                    </svg>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="white" /></svg>
                   </div>
                 </div>
               </div>
@@ -2237,7 +2194,7 @@
                 <div class="skeleton"></div>
                 <img data-src="assets/design/3.webp" alt="Design 3" />
               </div>
-            </div>
+            </div>            
           </div>
         </div>
 
@@ -2286,94 +2243,6 @@
                 Astro Yogi Siddhartha <span>Astrology</span>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CLIENT RESULTS -->
-    <section class="section" id="results" style="background: var(--mist)">
-      <div class="section-inner">
-        <div class="section-label fade-up">Client Results</div>
-        <div class="results-grid fade-up">
-          <div class="result-card">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                margin-bottom: 3px;
-              "
-            >
-              <div class="result-client">Resin Art Store India</div>
-              <div class="result-eyebrow">E-commerce</div>
-            </div>
-            <div class="result-stat">100% Sales</div>
-            <p class="result-desc">
-              Built an entire e-commerce brand from the ground up. All revenue
-              driven through social media alone — no paid ads, no retail shelf.
-              Grew to 15K+ community and 40% revenue growth YoY for three
-              consecutive years.
-            </p>
-          </div>
-          <div class="result-card">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                margin-bottom: 3px;
-              "
-            >
-              <div class="result-client">Snip Salon &amp; Spa</div>
-              <div class="result-eyebrow">Salon</div>
-            </div>
-            <div class="result-stat">300% Reach</div>
-            <p class="result-desc">
-              Tripled social engagement and reach for a 25-year-old salon brand.
-              Elevated the digital identity to match the premium in-store
-              experience — measurable increases in new client bookings followed.
-            </p>
-          </div>
-
-          <div class="result-card">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                margin-bottom: 3px;
-              "
-            >
-              <div class="result-client">Kaizen</div>
-              <div class="result-eyebrow">Wellness</div>
-            </div>
-            <div class="result-stat">+50% Footfall</div>
-            <p class="result-desc">
-              Increased in-studio and café footfalls by 50% in just 4 months
-              through targeted local marketing, social strategy, and content
-              that brought the Kaizen experience to life online.
-            </p>
-          </div>
-
-          <div class="result-card">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: baseline;
-                margin-bottom: 3px;
-              "
-            >
-              <div class="result-client">Villa Donna</div>
-              <div class="result-eyebrow">Hospitality</div>
-            </div>
-            <div class="result-stat">+25% Leads</div>
-            <p class="result-desc">
-              Increased qualified leads by 25% through targeted performance
-              marketing. Direct, measurable impact on occupancy — the kind of
-              ROI a premium hospitality brand demands.
-            </p>
           </div>
         </div>
       </div>
@@ -2436,6 +2305,66 @@
       </div>
     </section>
 
+    <!-- CLIENT RESULTS -->
+    <section class="section" id="results" style="background: var(--mist)">
+      <div class="section-inner">
+        <div class="section-label fade-up">Client Results</div>
+        <div class="results-grid fade-up">
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
+            <div class="result-client">Resin Art Store India</div>
+            <div class="result-eyebrow">E-commerce</div>
+          </div>
+          <div class="result-stat">100% Sales</div>
+          <p class="result-desc">
+            Built an entire e-commerce brand from the ground up. All revenue
+            driven through social media alone — no paid ads, no retail shelf.
+            Grew to 15K+ community and 40% revenue growth YoY for three
+            consecutive years.
+          </p>
+        </div>
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
+            <div class="result-client">Snip Salon &amp; Spa</div>
+            <div class="result-eyebrow">Salon</div>
+          </div>
+          <div class="result-stat">300% Reach</div>
+          <p class="result-desc">
+            Tripled social engagement and reach for a 25-year-old salon brand.
+            Elevated the digital identity to match the premium in-store
+            experience — measurable increases in new client bookings followed.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
+            <div class="result-client">Kaizen</div>
+            <div class="result-eyebrow">Wellness</div>
+          </div>
+          <div class="result-stat">+50% Footfall</div>
+          <p class="result-desc">
+            Increased in-studio and café footfalls by 50% in just 4 months
+            through targeted local marketing, social strategy, and content
+            that brought the Kaizen experience to life online.
+          </p>
+        </div>
+
+        <div class="result-card">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:3px;">
+            <div class="result-client">Villa Donna</div>
+            <div class="result-eyebrow">Hospitality</div>
+          </div>
+          <div class="result-stat">+25% Leads</div>
+          <p class="result-desc">
+            Increased qualified leads by 25% through targeted performance
+            marketing. Direct, measurable impact on occupancy — the kind of
+            ROI a premium hospitality brand demands.
+          </p>
+        </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CLIENT REFLECTIONS -->
     <section class="reflections-section" id="reflections">
       <div class="reflections-inner">
@@ -2444,16 +2373,15 @@
             <!-- <div class="section-label" style="margin-bottom: 0.75rem;">Client Reflections</div> -->
             <h2 class="reflections-heading">Client Reflections</h2>
           </div>
-          <p class="reflections-sub">
-            Real partnerships. Real outcomes. In their own words.
-          </p>
+          <p class="reflections-sub">Real partnerships. Real outcomes. In their own words.</p>
         </div>
         <div class="testimonials-grid fade-up">
+
           <!-- Testimonial 1 -->
           <div class="testimonial-card">
             <span class="testimonial-quote-mark">"</span>
             <p class="testimonial-text">
-              They pivoted effortlessly between a last-minute campaign and a long-term 25th Anniversary strategy — and became an indispensable part of SNIP's digital growth.
+              RARA is a powerhouse for fast-turnaround, high-quality digital content. Whether it was a last-minute campaign for a tropical ad launch or a long-term strategy for our 25th-Anniversary event, they pivoted effortlessly between projects. They have an incredible eye for detail and a knack for making even the most technical information feel approachable. Having worked with them for over a year now, they have become an indispensable part of SNIP's digital growth.
             </p>
             <div class="testimonial-author">
               <div>
@@ -2467,7 +2395,7 @@
           <div class="testimonial-card">
             <span class="testimonial-quote-mark">"</span>
             <p class="testimonial-text">
-              Their approach is always expert-driven and results-oriented. They acted as a true brand custodian — every piece of content was consistent with our long-term vision.
+              Rara brought a level of strategic depth we haven't found elsewhere. From developing a viral digital strategy for our digital launch to managing our community engagement, their approach is always expert-driven and results-oriented. They acted as a true brand custodian, ensuring every piece of content was consistent with our long-term vision.
             </p>
             <div class="testimonial-author">
               <div>
@@ -2481,7 +2409,7 @@
           <div class="testimonial-card">
             <span class="testimonial-quote-mark">"</span>
             <p class="testimonial-text">
-              They got the brief immediately — no back and forth. The brand deck they built was spot on and helped us secure some incredible collaborations.
+              We brought RARA on for VERY'S production and web development, and what stood out most was how quickly everything clicked — they got the brief immediately without us having to go back and forth multiple times. Their marketing and positioning strategy was a total win; the brand deck they built was spot on and gave us exactly what we needed to secure some incredible collaborations for our Dia de Women event.
             </p>
             <div class="testimonial-author">
               <div>
@@ -2490,6 +2418,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -2499,7 +2428,7 @@
       <div class="cta-inner">
         <div class="cta-left fade-up">
           <h2 class="cta-headline">
-            Ready to make your brand <em>undeniable online ?</em>
+            Ready to make your brand <em>undeniable online ?</em> 
           </h2>
           <p class="cta-sub">
             A 15-minute call is all it takes to know if we're the right fit.
@@ -2584,6 +2513,10 @@
                   <option>Performance marketing</option>
                   <option>Full-service partnership</option>
                 </select>
+              </div>
+              <div class="form-field full">
+                <label class="form-label">Anything Else We Should Know?</label
+                ><textarea class="form-textarea" id="f-message"></textarea>
               </div>
             </div>
             <button
@@ -2720,15 +2653,13 @@
       }
 
       // ─── HERO VIDEO END RESET ───
-document.getElementById("showreel").addEventListener("ended", () => {
-  const v = document.getElementById("showreel");
-  const btn = document.getElementById("playBtn");
-  v.pause();
-  v.currentTime = 0;
-  v.load();
-  v.muted = true;
-  btn.classList.remove("hidden");
-});
+      document.getElementById('showreel').addEventListener('ended', () => {
+        const v = document.getElementById('showreel');
+        const btn = document.getElementById('playBtn');
+        v.currentTime = 0;
+        v.load();
+        btn.classList.remove('hidden');
+      });
 
       // ─── SKELETON HIDE ───
       function clearSkeleton(el) {
@@ -2829,21 +2760,21 @@ document.getElementById("showreel").addEventListener("ended", () => {
         }
       }
 
-      // ─── VIDEO END RESET ───
-      document.addEventListener("click", () => {}); // ensure delegation is active
+// ─── VIDEO END RESET ───
+document.addEventListener('click', () => {}); // ensure delegation is active
 
-      document.querySelectorAll(".carousel-item").forEach((item) => {
-        const v = item.querySelector("video");
-        if (!v) return;
-        v.addEventListener("ended", () => {
-          item.classList.remove("playing");
-          v.pause();
-          v.currentTime = 0;
-          v.load(); // reloads poster/thumbnail
-          const btn = item.querySelector(".reel-play-btn");
-          if (btn) btn.style.display = "flex";
-        });
-      });
+document.querySelectorAll('.carousel-item').forEach((item) => {
+  const v = item.querySelector('video');
+  if (!v) return;
+  v.addEventListener('ended', () => {
+    item.classList.remove('playing');
+    v.pause();
+    v.currentTime = 0;
+    v.load(); // reloads poster/thumbnail
+    const btn = item.querySelector('.reel-play-btn');
+    if (btn) btn.style.display = 'flex';
+  });
+});
 
       // ─── FADE UP ───
       const fadeIO = new IntersectionObserver(
@@ -2917,6 +2848,7 @@ document.getElementById("showreel").addEventListener("ended", () => {
         const phone = document.getElementById("f-phone").value.trim();
         const time = document.getElementById("f-time").value;
         const service = document.getElementById("f-service").value;
+        const message = document.getElementById("f-message").value.trim();
 
         if (!name || !business || !email) {
           status.className = "form-status error";
@@ -2945,13 +2877,14 @@ document.getElementById("showreel").addEventListener("ended", () => {
               phone: phone || "Not provided",
               best_time: time || "Not specified",
               service_interest: service || "Not specified",
+              message: message || "—",
             },
           );
           status.className = "form-status success";
           status.textContent =
             "✓ Thank you! We'll be in touch within 24 hours.";
           btn.textContent = "Sent ✓";
-          ["f-name", "f-business", "f-email", "f-phone"].forEach(
+          ["f-name", "f-business", "f-email", "f-phone", "f-message"].forEach(
             (id) => (document.getElementById(id).value = ""),
           );
           document.getElementById("f-time").selectedIndex = 0;
